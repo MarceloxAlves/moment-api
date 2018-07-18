@@ -24,7 +24,7 @@ public class GreetingController {
 
     @RequestMapping("/")
     public Evento index() {
-        return  new Evento("Evento escrotoao", "Evento escroto descricao");
+        return  new Evento();
     }
 
 
