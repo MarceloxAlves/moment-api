@@ -1,7 +1,9 @@
 package model;
 
+import javax.persistence.Entity;
 import java.util.Date;
 
+@Entity
 public class Atividade {
     private String nome;
     private Date inicio;
