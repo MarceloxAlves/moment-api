@@ -33,8 +33,6 @@ public class Cupom {
         this.desconto = desconto;
         this.dataValidade = evento.getDataTermino();
     }
-
-    public void gerarCodigoCupom(){
-    }
+    
 
 }
