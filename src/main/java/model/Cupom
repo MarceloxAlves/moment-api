@@ -1,0 +1,25 @@
+package model;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Cupom {
+
+    private String descricao;
+    private String codigo;
+    private Evento evento;
+    private float desconto;
+    private Date dataValidade;
+
+    public Cupom(String descricao, Evento evento, float desconto) {
+        this.descricao = descricao;
+        this.codigo = gerarCodigoCupom();
+        this.evento = evento;
+        this.desconto = desconto;
+        this.dataValidade = evento.getDataTerminino();
+    }
+
+    public void gerarCodigoCupom(){
+    }
+
+}
