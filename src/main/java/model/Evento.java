@@ -1,8 +1,10 @@
 package model;
-
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "evento")
@@ -20,6 +22,26 @@ public class Evento {
     @Column(name = "descricao")
     private String descricao;
 
+    @Column(name = "dada_inicio")
+    private Date dataInicio;
+
+    @Column(name = "dada_termino")
+    private Date dataTermino;
+
+    @OneToMany(mappedBy = "evento")
+    private List<Atividade> atividades;
+
+    @OneToMany(mappedBy = "evento")
+    private List<Tag> tags;
+
+    @JoinTable(name = "colaborador",
+            joinColumns = {@JoinColumn(
+                    name ="evento_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "colaborador_id", referencedColumnName = "id_colaborador")})
+    private Collection<Colaborador> colaboradores;
+
+    public Evento() {
+    }
 
     public long getId() {
         return id;
@@ -43,5 +65,21 @@ public class Evento {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Date getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public Date getDataTermino() {
+        return dataTermino;
+    }
+
+    public void setDataTermino(Date dataTermino) {
+        this.dataTermino = dataTermino;
     }
 }

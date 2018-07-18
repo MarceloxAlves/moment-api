@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.Entity;
+import java.util.Date;
 
 @Entity
 public class Cupom {
@@ -13,10 +14,9 @@ public class Cupom {
 
     public Cupom(String descricao, Evento evento, float desconto) {
         this.descricao = descricao;
-        this.codigo = gerarCodigoCupom();
         this.evento = evento;
         this.desconto = desconto;
-        this.dataValidade = evento.getDataTerminino();
+        this.dataValidade = evento.getDataTermino();
     }
 
     public void gerarCodigoCupom(){
