@@ -3,10 +3,10 @@ package model;
 import javax.persistence.*;
 import java.util.Date;
 
+
 @Entity
 public class Cupom {
-
-    @Id
+  @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
@@ -33,6 +33,3 @@ public class Cupom {
         this.desconto = desconto;
         this.dataValidade = evento.getDataTermino();
     }
-    
-
-}
