@@ -1,16 +1,30 @@
 package model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Date;
-import java.util.Random;
+
 
 @Entity
 public class Cupom {
+  @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private long id;
 
+    @Column(name = "descricao")
     private String descricao;
+
+    @Column(name = "codigo")
     private String codigo;
+
+    @JoinColumn(name = "evento_id", referencedColumnName = "id_eveneto")
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Evento evento;
+
+    @Column(name = "desconto")
     private float desconto;
+
+    @Column(name = "dataValidade")
     private Date dataValidade;
 
     public Cupom(String descricao, Evento evento, float desconto) {
@@ -19,16 +33,3 @@ public class Cupom {
         this.desconto = desconto;
         this.dataValidade = evento.getDataTermino();
     }
-
-    public void gerarCodigoCupom(){
-        Random random = new Random();
-        String palavra = new String();
-        char letras[] = {'a','e','i','o','u','b','c','d','f','g','h'};
-        for (int i = 0; i <6; i++){
-            palavra += letras[random.nextInt(letras.length - 1)];
-        }
-
-        codigo = palavra;
-    }
-
-}
