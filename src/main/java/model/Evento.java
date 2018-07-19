@@ -1,5 +1,4 @@
 package model;
-
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -38,7 +37,7 @@ public class Evento {
     @JoinTable(name = "colaborador",
             joinColumns = {@JoinColumn(
                     name ="evento_id", referencedColumnName = "id")},
-                    inverseJoinColumns = {@JoinColumn(name = "colaborador_id", referencedColumnName = "id_colaborador")})
+            inverseJoinColumns = {@JoinColumn(name = "colaborador_id", referencedColumnName = "id_colaborador")})
     private Collection<Colaborador> colaboradores;
 
     public Evento() {

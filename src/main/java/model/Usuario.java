@@ -12,14 +12,15 @@ import javax.persistence.JoinColumn;
 
 @Entity
 public class Usuario {
-
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
     private String username;
     private String password;
     private Set<Role> roles;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     public Long getId() {
         return id;
     }
@@ -54,3 +55,5 @@ public class Usuario {
         this.roles = roles;
     }
 } 
+
+
