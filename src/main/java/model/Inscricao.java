@@ -2,9 +2,8 @@ package model;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -16,10 +15,10 @@ public class Inscricao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_inscricao")
-    private long id_inscricao;
+    private Long id;
 
-    @JoinColumn(name = "usuario_id_usuario", referencedColumnName = "id_usuario")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @OneToOne
+    @JoinColumn(name = "usuario", referencedColumnName = "id_usuario")
     private Usuario usuario;
 
     @Column(name = "valor_total")
@@ -31,9 +30,13 @@ public class Inscricao {
     @Column(name = "data_pagamento")
     private Date dataPagamento;
 
-    @OneToMany(mappedBy = "inscricao")
-    private Collection<Atividade> atividades;
-
+    @ManyToMany
+    @JoinTable(name = "item_inscricao",
+    joinColumns = {@JoinColumn(
+            name ="inscricao", referencedColumnName = "id_inscricao")},
+    inverseJoinColumns = {@JoinColumn(name = "atividade", referencedColumnName = "id_atividade")})
+    private List<Atividade> atividades;
+    
     @Column(name = "desconto")
     private double desconto;
 
@@ -44,4 +47,64 @@ public class Inscricao {
         this.dataPagamento = dataPagamento;
         this.atividades = atividades;
     }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public double getValorTotal() {
+		return valorTotal;
+	}
+
+	public void setValorTotal(double valorTotal) {
+		this.valorTotal = valorTotal;
+	}
+
+	public StatusInscricao getStatusInscricao() {
+		return statusInscricao;
+	}
+
+	public void setStatusInscricao(StatusInscricao statusInscricao) {
+		this.statusInscricao = statusInscricao;
+	}
+
+	public Date getDataPagamento() {
+		return dataPagamento;
+	}
+
+	public void setDataPagamento(Date dataPagamento) {
+		this.dataPagamento = dataPagamento;
+	}
+
+	public List<Atividade> getAtividades() {
+		return atividades;
+	}
+
+	public void setAtividades(List<Atividade> atividades) {
+		this.atividades = atividades;
+	}
+
+	public double getDesconto() {
+		return desconto;
+	}
+
+	public void setDesconto(double desconto) {
+		this.desconto = desconto;
+	}
+    
+    
+    
+    
 }

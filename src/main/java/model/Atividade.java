@@ -38,5 +38,55 @@ public class Atividade {
         this.tipoAtividade = tipoAtividade;
     }
 
+	public long getId_atividade() {
+		return id_atividade;
+	}
+
+	public void setId_atividade(long id_atividade) {
+		this.id_atividade = id_atividade;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Date getInicio() {
+		return inicio;
+	}
+
+	public void setInicio(Date inicio) {
+		this.inicio = inicio;
+	}
+
+	public Date getTermino() {
+		return termino;
+	}
+
+	public void setTermino(Date termino) {
+		this.termino = termino;
+	}
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+
+	public TipoAtividade getTipoAtividade() {
+		return tipoAtividade;
+	}
+
+	public void setTipoAtividade(TipoAtividade tipoAtividade) {
+		this.tipoAtividade = tipoAtividade;
+	}
+
+    
+    
 
 }

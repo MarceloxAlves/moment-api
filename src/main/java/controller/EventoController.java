@@ -1,7 +1,10 @@
 package controller;
 
 import model.Evento;
+import model.Usuario;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import repository.EventoRepository;
 
@@ -12,6 +15,7 @@ import java.util.List;
 @RequestMapping("/evento")
 @CrossOrigin("*")
 public class EventoController {
+	
     @Autowired
     EventoRepository eventoRepository;
 

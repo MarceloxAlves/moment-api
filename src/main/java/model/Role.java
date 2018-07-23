@@ -16,10 +16,12 @@ public class Role {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_role")
 	private Long id;
     
 	private String nome;
-    
+	
+	@ManyToMany(mappedBy = "roles")
 	private Set<Usuario> usuarios;
 
    
@@ -39,7 +41,7 @@ public class Role {
         this.nome = nome;
     }
 
-    @ManyToMany(mappedBy = "roles")
+    
     public Set<Usuario> getUsers() {
         return usuarios;
     }

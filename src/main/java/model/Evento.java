@@ -1,8 +1,9 @@
 package model;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+
+
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -13,32 +14,33 @@ public class Evento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long id;
-
-    @Column(name = "nome")
-    private String nome;
+    @Column(name = "id_evento")
+    private Long id;
 
     @Column(name = "descricao")
     private String descricao;
 
-    @Column(name = "dada_inicio")
+    @Column(name = "data_inicio")
     private Date dataInicio;
 
-    @Column(name = "dada_termino")
+    @Column(name = "data_termino")
     private Date dataTermino;
 
-    @OneToMany(mappedBy = "evento")
+    @Transient
     private List<Atividade> atividades;
 
-    @OneToMany(mappedBy = "evento")
+    @Transient
     private List<Tag> tags;
 
-    @JoinTable(name = "colaborador",
+    @ManyToMany
+    @JoinTable(name = "evento_colaborador",
             joinColumns = {@JoinColumn(
-                    name ="evento_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "colaborador_id", referencedColumnName = "id_colaborador")})
-    private Collection<Colaborador> colaboradores;
+                    name ="id_evento", referencedColumnName = "id_evento")},
+            inverseJoinColumns = {@JoinColumn(name = "id_colaborador", referencedColumnName = "id_colaborador")})
+    private List<Colaborador> colaboradores;
+    
+    @Transient
+    private List<Cupom> cupons;
 
     public Evento() {
     }
@@ -49,14 +51,6 @@ public class Evento {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getDescricao() {
@@ -82,4 +76,24 @@ public class Evento {
     public void setDataTermino(Date dataTermino) {
         this.dataTermino = dataTermino;
     }
+
+	public List<Tag> getTags() {
+		return tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
+	}
+
+	public List<Cupom> getCupons() {
+		return cupons;
+	}
+
+	public void setCupons(List<Cupom> cupons) {
+		this.cupons = cupons;
+	}
+	
+	
+    
+    
 }

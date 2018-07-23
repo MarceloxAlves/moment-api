@@ -2,7 +2,8 @@ package model;
 
 public enum TipoAtividade {
     PALESTRA(1), MINICURSO(2), MESAREDONDA(3);
-    private int tipoAtividade;
+    
+	private int tipoAtividade;
 
     TipoAtividade(int i){
         tipoAtividade = i;

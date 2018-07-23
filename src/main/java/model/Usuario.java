@@ -2,22 +2,34 @@ package model;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 
 @Entity
+@Table(name = "usuario")
 public class Usuario {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_usuario")
 	private Long id;
-    private String username;
-    private String password;
+   
+	private String username;
+    
+	private String password;
+    
+    @ManyToMany
+    @JoinTable(name = "usuario_role",
+            joinColumns = {@JoinColumn(
+                    name ="id_usuario", referencedColumnName = "id_usuario")},
+            inverseJoinColumns = {@JoinColumn(name = "id_role", referencedColumnName = "id_role")})
     private Set<Role> roles;
 
     
@@ -45,8 +57,7 @@ public class Usuario {
         this.password = password;
     }
 
-    @ManyToMany
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+   
     public Set<Role> getRoles() {
         return roles;
     }
