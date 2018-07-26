@@ -1,4 +1,5 @@
 package model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
@@ -21,16 +22,23 @@ public class Evento {
     private String descricao;
 
     @Column(name = "data_inicio")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date dataInicio;
 
     @Column(name = "data_termino")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date dataTermino;
 
     @Transient
     private List<Atividade> atividades;
 
-    @Transient
+    @ManyToMany
+    @JoinTable(name = "tag_evento",
+            joinColumns = {@JoinColumn(
+                    name ="id_evento", referencedColumnName = "id_evento")},
+            inverseJoinColumns = {@JoinColumn(name = "id_tag", referencedColumnName = "id_tag")})
     private List<Tag> tags;
+
 
     @ManyToMany
     @JoinTable(name = "evento_colaborador",
@@ -77,7 +85,23 @@ public class Evento {
         this.dataTermino = dataTermino;
     }
 
-	public List<Tag> getTags() {
+    public List<Atividade> getAtividades() {
+        return atividades;
+    }
+
+    public void setAtividades(List<Atividade> atividades) {
+        this.atividades = atividades;
+    }
+
+    public List<Colaborador> getColaboradores() {
+        return colaboradores;
+    }
+
+    public void setColaboradores(List<Colaborador> colaboradores) {
+        this.colaboradores = colaboradores;
+    }
+
+    public List<Tag> getTags() {
         return tags;
     }
 

@@ -2,15 +2,8 @@ package model;
 
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Entity
 @Table(name = "usuario")
@@ -20,9 +13,15 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_usuario")
 	private Long id;
-   
-	private String username;
-    
+
+	@Column(name = "nome")
+	private String nome;
+
+    @Column(name = "email")
+    @Email
+    private String email;
+
+	@Column(name = "password")
 	private String password;
 
     
@@ -34,12 +33,12 @@ public class Usuario {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getNome() {
+        return nome;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getPassword() {
@@ -50,6 +49,13 @@ public class Usuario {
         this.password = password;
     }
 
-} 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+}
 
 
