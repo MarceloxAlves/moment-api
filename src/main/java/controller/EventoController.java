@@ -30,7 +30,7 @@ public class EventoController {
     }
 
     @PostMapping("/cadastrar")
-    public Evento cadastrarEvento(@Valid @RequestBody Evento evento) {
+    public Evento cadastrarEvento(@Valid @RequestParam Evento evento) {
           return eventoRepository.save(evento);
     }
 }
