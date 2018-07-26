@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/evento")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class EventoController {
 	
     @Autowired
