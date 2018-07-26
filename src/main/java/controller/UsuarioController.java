@@ -18,17 +18,17 @@ public class UsuarioController {
     @Autowired
     UsuarioRepository usuarioRepository;
 
-    @GetMapping("/listar")
+    @GetMapping("/usuario/listar")
     public List<Usuario> getAllEventos() {
         return usuarioRepository.findAll();
     }
 
-    @GetMapping("/count")
+    @GetMapping("/usuario/count")
     public long getTotal() {
         return usuarioRepository.count();
     }
 
-    @PostMapping(path = "/cadastrar",  consumes = "application/json", produces = "application/json")
+    @PostMapping(path = "usuario/cadastrar",  consumes = "application/json", produces = "application/json")
     public Usuario cadastrarUsuario(@Valid @RequestBody Usuario usuario) {
           return usuarioRepository.save(usuario);
     }
