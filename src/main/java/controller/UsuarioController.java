@@ -2,35 +2,34 @@ package controller;
 
 import model.Evento;
 import model.Usuario;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import repository.EventoRepository;
+import repository.UsuarioRepository;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/evento")
+@RequestMapping("/usuario")
 @CrossOrigin(origins = "*")
-public class EventoController {
+public class UsuarioController {
 	
     @Autowired
-    EventoRepository eventoRepository;
+    UsuarioRepository usuarioRepository;
 
     @GetMapping("/listar")
-    public List<Evento> getAllEventos() {
-        return eventoRepository.findAll();
+    public List<Usuario> getAllEventos() {
+        return usuarioRepository.findAll();
     }
 
     @GetMapping("/count")
     public long getTotal() {
-        return eventoRepository.count();
+        return usuarioRepository.count();
     }
 
     @PostMapping(path = "/cadastrar",  consumes = "application/json", produces = "application/json")
-    public Evento cadastrarEvento(@Valid @RequestBody Evento evento) {
-          return eventoRepository.save(evento);
+    public Usuario cadastrarUsuario(@Valid @RequestBody Usuario usuario) {
+          return usuarioRepository.save(usuario);
     }
 }

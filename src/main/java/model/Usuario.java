@@ -24,13 +24,6 @@ public class Usuario {
 	private String username;
     
 	private String password;
-    
-    @ManyToMany
-    @JoinTable(name = "usuario_role",
-            joinColumns = {@JoinColumn(
-                    name ="id_usuario", referencedColumnName = "id_usuario")},
-            inverseJoinColumns = {@JoinColumn(name = "id_role", referencedColumnName = "id_role")})
-    private Set<Role> roles;
 
     
     public Long getId() {
@@ -57,14 +50,6 @@ public class Usuario {
         this.password = password;
     }
 
-   
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
 } 
 
 

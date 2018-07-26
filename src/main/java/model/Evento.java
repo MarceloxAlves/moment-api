@@ -78,22 +78,22 @@ public class Evento {
     }
 
 	public List<Tag> getTags() {
-		return tags;
-	}
+        return tags;
+    }
 
-	public void setTags(List<Tag> tags) {
-		this.tags = tags;
-	}
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
 
-	public List<Cupom> getCupons() {
-		return cupons;
-	}
+    public List<Cupom> getCupons() {
+        return cupons;
+    }
 
-	public void setCupons(List<Cupom> cupons) {
-		this.cupons = cupons;
-	}
-	
-	
-    
-    
+    public void setCupons(List<Cupom> cupons) {
+        this.cupons = cupons;
+    }
+
+
+
+
 }
