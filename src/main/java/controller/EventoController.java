@@ -13,11 +13,16 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/evento")
-@CrossOrigin(origins = "*")
 public class EventoController {
 	
     @Autowired
     EventoRepository eventoRepository;
+
+    @GetMapping("/")
+    public void index(){
+        getTotal();
+    }
+
 
     @GetMapping("/listar")
     public List<Evento> getAllEventos() {
@@ -29,7 +34,7 @@ public class EventoController {
         return eventoRepository.count();
     }
 
-    @PostMapping(path = "/cadastrar",  consumes = "application/json", produces = "application/json")
+    @GetMapping(path = "/cadastrar",  consumes = "application/json", produces = "application/json")
     public Evento cadastrarEvento(@Valid @RequestBody Evento evento) {
           return eventoRepository.save(evento);
     }
