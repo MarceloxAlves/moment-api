@@ -1,11 +1,9 @@
 package controller;
 
-import model.Evento;
 import model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import repository.EventoRepository;
 import repository.UsuarioRepository;
 
 import javax.validation.Valid;
