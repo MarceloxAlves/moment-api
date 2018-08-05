@@ -22,7 +22,7 @@ public class Usuario {
    private String email;
 
    @Column(name = "password")
-   String password;
+   private String password;
     
     public Long getId() {
         return id;
