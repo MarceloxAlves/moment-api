@@ -21,7 +21,8 @@ public class Usuario {
    @Email
    private String email;
 
-	 @Column(name = "password")
+   @Column(name = "password")
+   String password;
     
     public Long getId() {
         return id;
