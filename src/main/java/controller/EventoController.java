@@ -1,12 +1,16 @@
 package controller;
 
+import helper.ResultData;
 import model.Evento;
 import model.Usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import repository.EventoRepository;
+import service.EventoService;
+import validator.EventoValidator;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -16,26 +20,19 @@ import java.util.List;
 public class EventoController {
 	
     @Autowired
-    EventoRepository eventoRepository;
+    EventoService eventoService;
 
-    @GetMapping("/")
-    public void index(){
-        getTotal();
-    }
-
+    @Autowired
+    EventoValidator eventoValidator;
 
     @GetMapping("/listar")
     public List<Evento> getAllEventos() {
-        return eventoRepository.findAll();
+        return eventoService.findAll();
     }
 
-    @GetMapping("/count")
-    public long getTotal() {
-        return eventoRepository.count();
-    }
-
-    @GetMapping(path = "/cadastrar",  consumes = "application/json", produces = "application/json")
-    public Evento cadastrarEvento(@Valid @RequestBody Evento evento) {
-          return eventoRepository.save(evento);
+    @GetMapping(path = "/cadastrar", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = "application/json")
+    public ResultData cadastrarEvento(@Valid @RequestBody Evento evento) {
+        ResultData resultData = new ResultData();
+        return resultData;
     }
 }
