@@ -58,7 +58,14 @@ public class UsuarioController {
     public ResultData login(@RequestBody Login login, BindingResult bindingResult) {
         ResultData resultData = new ResultData();
         resultData.setField("usuario",usuarioService.Login(login));
-       return resultData;
+        return resultData;
+    }
+
+    @GetMapping(path = "/{email}", produces = "application/json")
+    public ResultData login(@PathVariable(value = "email") String email) {
+        ResultData resultData = new ResultData();
+        resultData.setField("usuario",usuarioService.getByEmail(email));
+        return resultData;
     }
 
 
