@@ -40,9 +40,6 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public String getPassword() {
-        return password;
-    }
 
     public void setPassword(String password) {
         this.password = password;

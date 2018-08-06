@@ -27,7 +27,11 @@ public class UsuarioService {
     }
 
 
-    public Usuario Login(Login login){
-        return  usuarioRepository.findByEmailPassword(login.getEmail(), login.getPassword());
+    public Object Login(Login login){
+        return  usuarioRepository.logar(login.getEmail(), login.getPassword());
+    }
+
+    public Usuario getByEmail(String email){
+        return  usuarioRepository.findByEmail(email);
     }
 }
