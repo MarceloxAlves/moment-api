@@ -28,12 +28,38 @@ public class EventoValidator implements Validator {
        Evento evento = (Evento) o;
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"descricao","descricaoVazia","Uma descrição é Obrigatória");
-        if (TDate.dataRetroativa(evento.getDataInicio())) {
-            errors.reject("Data de início inválida");
-        }
-        if (TDate.dataRetroativa(evento.getDataTermino())) {
-            errors.reject("Data de término inválida");
-        }
 
+        validarDataTermino(errors, evento);
+
+         validarDataInicio(errors, evento);
+
+    }
+
+    private void validarDataInicio(Errors errors, Evento evento) {
+        if (evento.getDataTermino() == null){
+            errors.reject("dataTerminoNull",null,"Data de término nula");
+        }else{
+            try{
+                if (TDate.dataRetroativa(evento.getDataTermino())) {
+                    errors.reject("dataTerminoNull",null,"Data de término retroativa");
+                }
+            }catch (Exception ex){
+                errors.reject("dataInicio",null,"Data de inicio inválida");
+            }
+        }
+    }
+
+    private void validarDataTermino(Errors errors, Evento evento) {
+        if (evento.getDataInicio() == null){
+            errors.reject("dataInicioNull",null,"Data de inicio nula");
+        }else {
+            try{
+                if (TDate.dataRetroativa(evento.getDataInicio())) {
+                    errors.reject("dataInicioNull",null,"Data de inicio retroativa");
+                }
+            }catch(Exception ex){
+                errors.reject("dataTermino",null,"Data de término inválida");
+            }
+        }
     }
 }

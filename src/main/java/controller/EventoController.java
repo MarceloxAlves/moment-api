@@ -5,8 +5,10 @@ import model.Evento;
 import model.Usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import repository.EventoRepository;
 import service.EventoService;
@@ -30,9 +32,20 @@ public class EventoController {
         return eventoService.findAll();
     }
 
-    @GetMapping(path = "/cadastrar", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = "application/json")
-    public ResultData cadastrarEvento(@Valid @RequestBody Evento evento) {
+
+    @PostMapping(path = "/cadastrar", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = "application/json")
+    public ResultData cadastrarEvento(@Valid @RequestBody Evento evento, BindingResult bindingResult) {
         ResultData resultData = new ResultData();
+
+        eventoValidator.validate(evento, bindingResult);
+        if(bindingResult.hasErrors()){
+            resultData.error();
+            resultData.setField("erros", bindingResult.getAllErrors());
+            return resultData;
+        }
+
+       // eventoService.criarEvento(evento);
+
         return resultData;
     }
 }
