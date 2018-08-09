@@ -31,7 +31,7 @@ public class CupomController {
         return cupomRepository.count();
     }
 
-    @GetMapping("/salvar")
+    @GetMapping("/cadastrar")
     public Cupom criarCupom(@Valid @RequestBody Cupom cupom){
         return cupomRepository.save(cupom);
     }
