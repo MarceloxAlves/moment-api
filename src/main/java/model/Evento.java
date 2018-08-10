@@ -1,7 +1,8 @@
 package model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
+import service.interfaces.EstadoEvento;
+import service.states.FabricaEstadoEvento;
 
 
 import javax.persistence.*;
@@ -14,7 +15,7 @@ import java.util.List;
 public class Evento {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_evento")
     private Long id;
 
@@ -28,6 +29,9 @@ public class Evento {
     @Column(name = "data_termino")
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date dataTermino;
+
+    @Column(name = "estado_evento")
+    private String estadoEvento;
 
     @Transient
     private List<Atividade> atividades;
@@ -53,11 +57,11 @@ public class Evento {
     public Evento() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -118,6 +122,11 @@ public class Evento {
     }
 
 
+    public EstadoEvento getEstadoEvento() {
+        return new FabricaEstadoEvento().getEstado(this.estadoEvento);
+    }
 
-
+    public void setEstadoEvento(EstadoEvento estadoEvento) {
+        this.estadoEvento = estadoEvento.getEstado();
+    }
 }

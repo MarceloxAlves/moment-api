@@ -2,15 +2,11 @@ package controller;
 
 import helper.ResultData;
 import model.Evento;
-import model.Usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.http.MediaType;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import repository.EventoRepository;
 import service.EventoService;
 import validator.EventoValidator;
 
@@ -33,6 +29,25 @@ public class EventoController {
     }
 
 
+    @GetMapping("/mudar-estado/{id}")
+    public Evento mudarEstado(@PathVariable Long id ) {
+        Evento evento = eventoService.findByIdEvento(id);
+         if (evento != null ) {
+             eventoService.mudarEstado(evento);
+         }
+         return evento;
+    }
+
+    @GetMapping("/cancelar/{id}")
+    public Evento cancelarEvento(@PathVariable Long id ) {
+        Evento evento = eventoService.findByIdEvento(id);
+        if (evento != null ) {
+            eventoService.cancelarEvento(evento);
+        }
+        return evento;
+    }
+
+
     @PostMapping(path = "/cadastrar", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = "application/json")
     public ResultData cadastrarEvento(@Valid @RequestBody Evento evento, BindingResult bindingResult) {
         ResultData resultData = new ResultData();
@@ -44,7 +59,7 @@ public class EventoController {
             return resultData;
         }
 
-       // eventoService.criarEvento(evento);
+        eventoService.criarEvento(evento);
 
         return resultData;
     }
