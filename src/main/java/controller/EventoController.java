@@ -1,12 +1,14 @@
 package controller;
 
+import helper.ResultData;
 import model.Evento;
-import model.Usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
+import org.springframework.http.MediaType;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import repository.EventoRepository;
+import service.EventoService;
+import validator.EventoValidator;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -16,26 +18,49 @@ import java.util.List;
 public class EventoController {
 	
     @Autowired
-    EventoRepository eventoRepository;
+    EventoService eventoService;
 
-    @GetMapping("/")
-    public void index(){
-        getTotal();
-    }
-
+    @Autowired
+    EventoValidator eventoValidator;
 
     @GetMapping("/listar")
     public List<Evento> getAllEventos() {
-        return eventoRepository.findAll();
+        return eventoService.findAll();
     }
 
-    @GetMapping("/count")
-    public long getTotal() {
-        return eventoRepository.count();
+
+    @GetMapping("/mudar-estado/{id}")
+    public Evento mudarEstado(@PathVariable Long id ) {
+        Evento evento = eventoService.findByIdEvento(id);
+         if (evento != null ) {
+             eventoService.mudarEstado(evento);
+         }
+         return evento;
     }
 
-    @GetMapping(path = "/cadastrar",  consumes = "application/json", produces = "application/json")
-    public Evento cadastrarEvento(@Valid @RequestBody Evento evento) {
-          return eventoRepository.save(evento);
+    @GetMapping("/cancelar/{id}")
+    public Evento cancelarEvento(@PathVariable Long id ) {
+        Evento evento = eventoService.findByIdEvento(id);
+        if (evento != null ) {
+            eventoService.cancelarEvento(evento);
+        }
+        return evento;
+    }
+
+
+    @PostMapping(path = "/cadastrar", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = "application/json")
+    public ResultData cadastrarEvento(@Valid @RequestBody Evento evento, BindingResult bindingResult) {
+        ResultData resultData = new ResultData();
+
+        eventoValidator.validate(evento, bindingResult);
+        if(bindingResult.hasErrors()){
+            resultData.error();
+            resultData.setField("erros", bindingResult.getAllErrors());
+            return resultData;
+        }
+
+        eventoService.criarEvento(evento);
+
+        return resultData;
     }
 }
