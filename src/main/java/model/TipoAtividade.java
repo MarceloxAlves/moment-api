@@ -1,16 +1,31 @@
 package model;
 
-public enum TipoAtividade {
-    PALESTRA(1), MINICURSO(2), MESAREDONDA(3);
-    
-	private int tipoAtividade;
+import javax.persistence.*;
 
-    TipoAtividade(int i){
-        tipoAtividade = i;
+@Entity
+@Table(name = "tipo_atividade")
+public class TipoAtividade {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "tipo_atividade_id")
+    private Long id;
+
+    private String nome;
+
+    public Long getId() {
+        return id;
     }
 
-    public int getTipoAtividade(){
-        return tipoAtividade;
+    public void setId(Long id) {
+        this.id = id;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }

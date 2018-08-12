@@ -1,18 +1,21 @@
 package model;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import service.interfaces.EstadoEvento;
 import service.states.FabricaEstadoEvento;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "evento")
 @EntityListeners(AuditingEntityListener.class)
-public class Evento {
+public class Evento implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,9 +38,10 @@ public class Evento {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id")
+    @JsonIgnore
     private Usuario usuario;
 
-    @Transient
+    @OneToMany(mappedBy = "evento")
     private List<Atividade> atividades;
 
     @ManyToMany
@@ -46,7 +50,6 @@ public class Evento {
                     name ="id_evento", referencedColumnName = "id_evento")},
             inverseJoinColumns = {@JoinColumn(name = "id_tag", referencedColumnName = "id_tag")})
     private List<Tag> tags;
-
 
     @ManyToMany
     @JoinTable(name = "evento_colaborador",

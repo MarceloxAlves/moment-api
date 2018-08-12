@@ -1,5 +1,8 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
@@ -8,7 +11,7 @@ import javax.validation.constraints.Email;
 
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+public class Usuario implements Serializable {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,7 +28,7 @@ public class Usuario {
    @Column(name = "password")
    private String password;
 
-   @OneToMany(mappedBy = "usuario")
+   @OneToMany(mappedBy = "usuario", targetEntity = Evento.class)
    private List<Evento> eventos;
     
     public Long getId() {
@@ -55,6 +58,10 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Evento> getEventos() {
+        return eventos;
     }
 }
 
