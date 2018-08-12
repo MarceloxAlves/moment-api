@@ -1,53 +1,55 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "atividade")
 @EntityListeners(AuditingEntityListener.class)
-public class Atividade {
+public class Atividade implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_atividade")
-    private long id_atividade;
+    private Long id;
 
     @Column(name = "nome")
     private String nome;
 
     @Column(name = "inicio")
-    private Date inicio;
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime inicio;
 
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(name = "termino")
-    private Date termino;
+    private LocalDateTime termino;
 
     @Column(name = "valor")
     private double valor;
 
-    @Column(name = "tipo_atividade")
+    @OneToOne
+	@JoinColumn(name = "tipo_atividade_id")
     private TipoAtividade tipoAtividade;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_evento")
+	@JsonIgnore
 	private Evento evento;
 
-    public Atividade(String nome, Date inicio, Date termino, double valor, TipoAtividade tipoAtividade) {
-        this.nome = nome;
-        this.inicio = inicio;
-        this.termino = termino;
-        this.valor = valor;
-        this.tipoAtividade = tipoAtividade;
-    }
+    public Atividade(){}
 
-	public long getId_atividade() {
-		return id_atividade;
+	public Long getId() {
+		return id;
 	}
 
-	public void setId_atividade(long id_atividade) {
-		this.id_atividade = id_atividade;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -58,19 +60,19 @@ public class Atividade {
 		this.nome = nome;
 	}
 
-	public Date getInicio() {
+	public LocalDateTime getInicio() {
 		return inicio;
 	}
 
-	public void setInicio(Date inicio) {
+	public void setInicio(LocalDateTime inicio) {
 		this.inicio = inicio;
 	}
 
-	public Date getTermino() {
+	public LocalDateTime getTermino() {
 		return termino;
 	}
 
-	public void setTermino(Date termino) {
+	public void setTermino(LocalDateTime termino) {
 		this.termino = termino;
 	}
 
