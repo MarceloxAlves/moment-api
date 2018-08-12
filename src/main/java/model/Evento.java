@@ -33,6 +33,10 @@ public class Evento {
     @Column(name = "estado_evento")
     private String estadoEvento;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
     @Transient
     private List<Atividade> atividades;
 
@@ -128,5 +132,13 @@ public class Evento {
 
     public void setEstadoEvento(EstadoEvento estadoEvento) {
         this.estadoEvento = estadoEvento.getEstado();
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
