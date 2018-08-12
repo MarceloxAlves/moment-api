@@ -21,9 +21,6 @@ public class AtividadeController {
     @Autowired
     AtividadeService atividadeService;
 
-    @Autowired
-    AtividadeRepository atividadeRepository;
-
     @GetMapping("/listar")
     public List<Atividade> getAllAtividades() {
         return atividadeService.findAll();
@@ -31,12 +28,12 @@ public class AtividadeController {
 
     @GetMapping("/cadastrar")
     public Atividade criarAtividade(@Valid @RequestBody Atividade atividade){
-        return atividadeRepository.save(atividade);
+        return atividadeService.criarAtividade(atividade);
     }
     
     @GetMapping("buscar-atividade/{id}")
     public Optional<Atividade> buscarAtividade(@PathVariable Long id) {
-    	Optional<Atividade> atividadeEncontrada = atividadeRepository.findById(id);
+    	Optional<Atividade> atividadeEncontrada = atividadeService.getAtividade(id);
     	return atividadeEncontrada;
     }
     
