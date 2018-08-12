@@ -24,9 +24,9 @@ public class UsuarioValidator implements Validator {
        Usuario usuario = (Usuario) o;
 
        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"email","emailVazio","Email é obrigadorio");
-//        if (usuarioService.findByEmail(usuario.getEmail()) != null) {
-//            errors.rejectValue("username", "Duplicate.userForm.username");
-//        }
+    if (usuarioService.getByEmail(usuario.getEmail()) != null) {
+          errors.rejectValue("email", "emailRepetido","Email ja cadastrado!");
+      }
 
     }
 }

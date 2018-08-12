@@ -51,7 +51,6 @@ public class EventoController {
     @PostMapping(path = "/cadastrar", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = "application/json")
     public ResultData cadastrarEvento(@Valid @RequestBody Evento evento, BindingResult bindingResult) {
         ResultData resultData = new ResultData();
-
         eventoValidator.validate(evento, bindingResult);
         if(bindingResult.hasErrors()){
             resultData.error();

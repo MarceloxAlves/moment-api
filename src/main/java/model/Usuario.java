@@ -1,5 +1,6 @@
 package model;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -23,6 +24,9 @@ public class Usuario {
 
    @Column(name = "password")
    private String password;
+
+   @OneToMany(mappedBy = "usuario")
+   private List<Evento> eventos;
     
     public Long getId() {
         return id;
