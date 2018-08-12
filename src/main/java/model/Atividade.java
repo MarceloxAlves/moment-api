@@ -30,6 +30,10 @@ public class Atividade {
     @Column(name = "tipo_atividade")
     private TipoAtividade tipoAtividade;
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_evento")
+	private Evento evento;
+
     public Atividade(String nome, Date inicio, Date termino, double valor, TipoAtividade tipoAtividade) {
         this.nome = nome;
         this.inicio = inicio;
@@ -86,7 +90,11 @@ public class Atividade {
 		this.tipoAtividade = tipoAtividade;
 	}
 
-    
-    
+	public Evento getEvento() {
+		return evento;
+	}
 
+	public void setEvento(Evento evento) {
+		this.evento = evento;
+	}
 }

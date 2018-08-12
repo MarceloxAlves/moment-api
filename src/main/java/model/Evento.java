@@ -37,7 +37,7 @@ public class Evento {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
-    @Transient
+    @OneToMany(mappedBy = "evento")
     private List<Atividade> atividades;
 
     @ManyToMany
