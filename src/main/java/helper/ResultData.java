@@ -15,7 +15,7 @@ public class ResultData {
     public ResultData() {
         result = new HashMap<>();
         data = new HashMap<>();
-        result.put(STATUS,"sucess");
+        result.put(STATUS,"success");
         result.put(RESPONSE,data);
     }
 
