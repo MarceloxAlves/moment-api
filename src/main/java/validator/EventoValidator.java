@@ -27,6 +27,7 @@ public class EventoValidator implements Validator {
        Evento evento = (Evento) o;
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"descricao","descricaoVazia","Uma descrição é Obrigatória");
+
         validarUsuarioEvento(errors, evento) ;
 
         validarDataTermino(errors, evento);

@@ -1,6 +1,6 @@
 package model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,6 +11,9 @@ import javax.validation.constraints.Email;
 
 @Entity
 @Table(name = "usuario")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Usuario implements Serializable {
 	
 	@Id
@@ -29,6 +32,7 @@ public class Usuario implements Serializable {
    private String password;
 
    @OneToMany(mappedBy = "usuario", targetEntity = Evento.class)
+   @JsonManagedReference
    private List<Evento> eventos;
     
     public Long getId() {

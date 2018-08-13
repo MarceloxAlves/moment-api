@@ -1,8 +1,6 @@
 package model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -12,6 +10,9 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "atividade")
 @EntityListeners(AuditingEntityListener.class)
+@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class,
+		property = "id")
 public class Atividade implements Serializable {
 
     @Id
@@ -39,7 +40,7 @@ public class Atividade implements Serializable {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_evento")
-	@JsonIgnore
+	@JsonBackReference
 	private Evento evento;
 
     public Atividade(){}
