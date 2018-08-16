@@ -1,6 +1,7 @@
 package controller;
 
 import model.Cupom;
+
 import model.Evento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -19,7 +20,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/cupom")
-@CrossOrigin(origins = "*")
 public class CupomController {
     
 	@Autowired
@@ -28,7 +28,7 @@ public class CupomController {
     @Autowired
     CupomValidator cupomValidator;
 
-    @GetMapping("/listar_eventos")
+    @GetMapping("/listar_cupom")
     public List<Cupom> getAllEventos() {
         return cupomService.findAll();
     }

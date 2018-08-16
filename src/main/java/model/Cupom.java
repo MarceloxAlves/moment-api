@@ -2,15 +2,22 @@ package model;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
 
 @Entity
 @Table(name = "cupom")
-public class Cupom {
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
+public class Cupom implements Serializable {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,8 +30,9 @@ public class Cupom {
     @Column(name = "codigo")
     private String codigo;
 
-    @ManyToOne()
-    @JoinColumn(name = "id_evento", referencedColumnName = "id_evento")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_evento")
+	@JsonBackReference
     private Evento evento;
 
     @Column(name = "desconto")

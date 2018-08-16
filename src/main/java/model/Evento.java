@@ -1,5 +1,7 @@
 package model;
 import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import service.interfaces.EstadoEvento;
 import service.states.FabricaEstadoEvento;
@@ -60,7 +62,8 @@ public class Evento implements Serializable {
             inverseJoinColumns = {@JoinColumn(name = "id_colaborador", referencedColumnName = "id_colaborador")})
     private List<Colaborador> colaboradores;
     
-    @Transient
+    @OneToMany(mappedBy = "evento")
+    @JsonManagedReference
     private List<Cupom> cupons;
 
     public Evento() {
