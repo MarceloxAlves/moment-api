@@ -44,7 +44,7 @@ public class Evento implements Serializable {
     @JsonBackReference
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "evento")
+    @OneToMany(mappedBy = "evento", targetEntity = Atividade.class)
     @JsonManagedReference
     private List<Atividade> atividades;
 
@@ -61,8 +61,8 @@ public class Evento implements Serializable {
                     name ="id_evento", referencedColumnName = "id_evento")},
             inverseJoinColumns = {@JoinColumn(name = "id_colaborador", referencedColumnName = "id_colaborador")})
     private List<Colaborador> colaboradores;
-    
-    @OneToMany(mappedBy = "evento")
+
+    @OneToMany(mappedBy = "evento", targetEntity = Cupom.class)
     @JsonManagedReference
     private List<Cupom> cupons;
 

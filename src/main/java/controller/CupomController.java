@@ -28,8 +28,8 @@ public class CupomController {
     @Autowired
     CupomValidator cupomValidator;
 
-    @GetMapping("/listar_cupom")
-    public List<Cupom> getAllEventos() {
+    @GetMapping("/listar")
+    public List<Cupom> getAllCupom() {
         return cupomService.findAll();
     }
     
