@@ -63,9 +63,6 @@ public class Evento implements Serializable {
     @Transient
     private List<Cupom> cupons;
 
-    public Evento() {
-    }
-
     public Long getId() {
         return id;
     }

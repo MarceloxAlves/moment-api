@@ -43,8 +43,6 @@ public class Atividade implements Serializable {
 	@JsonBackReference
 	private Evento evento;
 
-    public Atividade(){}
-
 	public Long getId() {
 		return id;
 	}
