@@ -2,16 +2,22 @@ package model;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.*;
+
+import java.io.Serializable;
 import java.util.Date;
 
 
 
 @Entity
 @Table(name = "cupom")
-public class Cupom {
+@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class,
+		property = "id")
+public class Cupom implements Serializable {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_cupom")
     private Long id;
 
@@ -22,27 +28,26 @@ public class Cupom {
     private String codigo;
 
     @ManyToOne()
-    @JoinColumn(name = "id_evento", referencedColumnName = "id_evento")
+    @JoinColumn(name = "id_evento")
+	@JsonBackReference
     private Evento evento;
 
     @Column(name = "desconto")
     private float desconto;
 
     @Column(name = "data_validade")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date dataValidade;
 
-    public Cupom(String descricao, Evento evento, float desconto) {
-        this.descricao = descricao;
-        this.evento = evento;
-        this.desconto = desconto;
-        this.dataValidade = evento.getDataTermino();
+    public Cupom() {
+    	
     }
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -38,7 +38,7 @@ public class Atividade implements Serializable {
 	@JoinColumn(name = "tipo_atividade_id")
     private TipoAtividade tipoAtividade;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_evento")
 	@JsonBackReference
 	private Evento evento;
