@@ -12,6 +12,7 @@ import javax.validation.constraints.Email;
 @Entity
 @Table(name = "usuario")
 @JsonIdentityInfo(
+		scope = Usuario.class,
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
 public class Usuario implements Serializable {

@@ -2,6 +2,9 @@ package model;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -10,24 +13,35 @@ import java.util.List;
 @Entity
 @Table(name = "inscricao")
 @EntityListeners(AuditingEntityListener.class)
+@JsonIdentityInfo(
+		scope = Inscricao.class,
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Inscricao {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_inscricao")
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "usuario", referencedColumnName = "id_usuario")
+    @JoinColumn(name = "participante", referencedColumnName = "id_usuario")
     private Usuario usuario;
-
+    
+    @ManyToOne
+    @JoinColumn(name = "evento", referencedColumnName = "id_evento")
+    private Evento evento;
+    
     @Column(name = "valor_total")
     private double valorTotal;
 
     @Column(name = "status_inscricao")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    @Enumerated(EnumType.STRING)
     private StatusInscricao statusInscricao;
 
     @Column(name = "data_pagamento")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date dataPagamento;
 
     @ManyToMany
@@ -40,12 +54,8 @@ public class Inscricao {
     @Column(name = "desconto")
     private double desconto;
 
-    public Inscricao(Usuario usuario, double valorTotal, StatusInscricao statusInscricao, Date dataPagamento, List<Atividade> atividades) {
-        this.usuario = usuario;
-        this.valorTotal = valorTotal;
-        this.statusInscricao = statusInscricao;
-        this.dataPagamento = dataPagamento;
-        this.atividades = atividades;
+    public Inscricao() {
+    	
     }
 
 	public Long getId() {
@@ -102,6 +112,14 @@ public class Inscricao {
 
 	public void setDesconto(double desconto) {
 		this.desconto = desconto;
+	}
+
+	public Evento getEvento() {
+		return evento;
+	}
+
+	public void setEvento(Evento evento) {
+		this.evento = evento;
 	}
     
     

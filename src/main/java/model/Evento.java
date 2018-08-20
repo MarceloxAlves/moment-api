@@ -16,6 +16,7 @@ import java.util.List;
 @Table(name = "evento")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIdentityInfo(
+		scope = Evento.class,
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
 public class Evento implements Serializable {
