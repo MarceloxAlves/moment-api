@@ -36,7 +36,7 @@ public class Inscricao {
     private double valorTotal;
 
     @Column(name = "status_inscricao")
-    @JsonFormat(shape = JsonFormat.Shape.OBJECT)
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     @Enumerated(EnumType.STRING)
     private StatusInscricao statusInscricao;
 
