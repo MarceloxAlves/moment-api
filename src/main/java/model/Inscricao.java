@@ -3,6 +3,8 @@ package model;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,6 +13,10 @@ import java.util.List;
 @Entity
 @Table(name = "inscricao")
 @EntityListeners(AuditingEntityListener.class)
+@JsonIdentityInfo(
+		scope = Inscricao.class,
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Inscricao {
 
     @Id
@@ -21,6 +27,10 @@ public class Inscricao {
     @OneToOne
     @JoinColumn(name = "participante", referencedColumnName = "id_usuario")
     private Usuario usuario;
+    
+    @ManyToOne
+    @JoinColumn(name = "evento", referencedColumnName = "id_evento")
+    private Evento evento;
     
     @Column(name = "valor_total")
     private double valorTotal;
@@ -102,6 +112,14 @@ public class Inscricao {
 
 	public void setDesconto(double desconto) {
 		this.desconto = desconto;
+	}
+
+	public Evento getEvento() {
+		return evento;
+	}
+
+	public void setEvento(Evento evento) {
+		this.evento = evento;
 	}
     
     

@@ -30,6 +30,10 @@ public class AtividadeService {
         return atividadeRepository.findAll();
     }
     
+    public Atividade obterAtividade(Long id) {
+        return atividadeRepository.findByIdAtividade(id);
+    }
+    
     public Optional<Atividade> getAtividade(Long id) {
         return atividadeRepository.findById(id);
     }

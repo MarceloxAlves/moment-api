@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import model.Atividade;
-import model.Evento;
 import model.Inscricao;
 import repository.InscricaoRepository;
 
@@ -25,9 +24,8 @@ public class InscricaoService {
 		double valorTotal=0;
 		for(Atividade atividade: inscricao.getAtividades()) {
 			Optional<Atividade> atividadeEncontrada = atividadeService.getAtividade(atividade.getId());
-				valorTotal += atividadeEncontrada.get().getValor();
+			valorTotal += atividadeEncontrada.get().getValor();
 		}
-		
 		inscricao.setValorTotal(valorTotal);
 		inscricaoRepository.save(inscricao);
 	}
