@@ -90,6 +90,6 @@ public class Cupom implements Serializable {
 	public void setDataValidade(Date dataValidade) {
 		this.dataValidade = dataValidade;
 	}
-    
-    
+
+
 }
