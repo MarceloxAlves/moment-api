@@ -52,5 +52,8 @@ public class EventoService {
 		return evento.getEstadoEvento();
 	}
 
-	 
+
+	public void delete(Long id) {
+	 	  eventoRepository.deleteById(id);
+	}
 }

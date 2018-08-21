@@ -2,6 +2,7 @@ package model;
 
 import com.fasterxml.jackson.annotation.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,15 +25,18 @@ public class Atividade implements Serializable {
     private String nome;
 
     @Column(name = "inicio")
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime inicio;
 
-	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    @Column(name = "termino")
-    private LocalDateTime termino;
 
     @Column(name = "valor")
     private double valor;
+
+    @Column(name = "termino")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime termino;
 
     @OneToOne
 	@JoinColumn(name = "tipo_atividade_id")

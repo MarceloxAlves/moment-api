@@ -11,6 +11,7 @@ import service.EventoService;
 import validator.EventoValidator;
 
 import javax.validation.Valid;
+import java.io.Console;
 import java.util.List;
 
 @RestController
@@ -45,6 +46,24 @@ public class EventoController {
             eventoService.cancelarEvento(evento);
         }
         return evento;
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResultData deletarEvento(@PathVariable Long id ) {
+        ResultData resultData = new ResultData();
+        try{
+            Evento evento = eventoService.findByIdEvento(id);
+            if (evento != null ) {
+                eventoService.delete(id);
+            }
+          resultData.setMessage("Evento deletado com sucesso!" );
+
+        }catch (Exception ex){
+            resultData.error();
+            resultData.setMessage("Erro ao deletar o evento de codigo " + id);
+        }
+
+        return resultData;
     }
 
 
