@@ -28,8 +28,7 @@ public class EventoController {
     public List<Evento> getAllEventos() {
         return eventoService.findAll();
     }
-
-
+    
     @GetMapping("/mudar-estado/{id}")
     public Evento mudarEstado(@PathVariable Long id ) {
         Evento evento = eventoService.findByIdEvento(id);
@@ -38,7 +37,17 @@ public class EventoController {
          }
          return evento;
     }
-
+    
+    @GetMapping("/participar/{id}")
+    public Evento participarEvento(@PathVariable Long id) {
+    	 Evento evento = eventoService.findByIdEvento(id);
+         if (evento == null) {
+            return new Evento();
+         }
+         return evento;
+         
+    }
+    
     @GetMapping("/cancelar/{id}")
     public Evento cancelarEvento(@PathVariable Long id ) {
         Evento evento = eventoService.findByIdEvento(id);
