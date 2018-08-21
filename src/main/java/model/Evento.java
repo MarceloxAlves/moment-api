@@ -30,11 +30,11 @@ public class Evento implements Serializable {
     private String descricao;
 
     @Column(name = "data_inicio")
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="GMT")
     private Date dataInicio;
 
     @Column(name = "data_termino")
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="GMT")
     private Date dataTermino;
 
     @Column(name = "estado_evento")
