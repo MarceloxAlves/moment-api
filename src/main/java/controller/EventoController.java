@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThatIllegalStateException;
 import java.util.List;
 
 @RestController
-@RequestMapping("evento")
+@RequestMapping("/evento")
 public class EventoController {
 	
     @Autowired
