@@ -40,6 +40,21 @@ public class DefaultApiTest {
      *          if the Api call fails
      */
     @Test
+    public void usuarioCadastrarPostTest() throws ApiException {
+        api.usuarioCadastrarPost();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Retorna uma lista de usuário.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
     public void usuarioListarGetTest() throws ApiException {
         api.usuarioListarGet();
 

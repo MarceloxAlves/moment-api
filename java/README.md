@@ -72,9 +72,9 @@ public class DefaultApiExample {
         
         DefaultApi apiInstance = new DefaultApi();
         try {
-            apiInstance.usuarioListarGet();
+            apiInstance.usuarioCadastrarPost();
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#usuarioListarGet");
+            System.err.println("Exception when calling DefaultApi#usuarioCadastrarPost");
             e.printStackTrace();
         }
     }
@@ -88,6 +88,7 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**usuarioCadastrarPost**](docs/DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Retorna uma lista de usuário.
 *DefaultApi* | [**usuarioListarGet**](docs/DefaultApi.md#usuarioListarGet) | **GET** /usuario/listar | Retorna uma lista de usuário.
 
 
