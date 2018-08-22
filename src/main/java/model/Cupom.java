@@ -39,6 +39,8 @@ public class Cupom implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date dataValidade;
 
+    private boolean utilizado;
+
     public Cupom() {
     	
     }
@@ -92,4 +94,11 @@ public class Cupom implements Serializable {
 	}
 
 
+	public boolean isUtilizado() {
+		return utilizado;
+	}
+
+	public void setUtilizado() {
+		this.utilizado = true;
+	}
 }
