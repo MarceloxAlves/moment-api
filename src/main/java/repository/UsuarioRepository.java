@@ -2,6 +2,8 @@ package repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import model.Evento;
+import model.Inscricao;
 import model.Usuario;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -14,4 +16,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     Object logar(@Param("email") String email, @Param("password") String password);
 
     Usuario findByEmail(String email);
+    
+    @Query("select i from Inscricao i JOIN i.usuario where i.usuario.id = :id")
+	List<Inscricao> inscricoesUsuario(@Param("id") Long id);
 }

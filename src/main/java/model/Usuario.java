@@ -1,6 +1,7 @@
 package model;
 
 import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import java.io.Serializable;
 import java.util.List;
@@ -23,13 +24,14 @@ public class Usuario implements Serializable {
 	private Long id;
   
 	@Column(name = "nome")
-	private String nome;
+    private String nome;
 
    @Column(name = "email")
    @Email
    private String email;
 
    @Column(name = "password")
+   @JsonProperty(access = Access.WRITE_ONLY)
    private String password;
 
    @OneToMany(mappedBy = "usuario", targetEntity = Evento.class)

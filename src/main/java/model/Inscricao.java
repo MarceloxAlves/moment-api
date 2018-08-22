@@ -4,6 +4,10 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
@@ -26,6 +30,7 @@ public class Inscricao {
 
     @OneToOne
     @JoinColumn(name = "participante", referencedColumnName = "id_usuario")
+    @JsonIgnore
     private Usuario usuario;
     
     @ManyToOne
@@ -33,15 +38,18 @@ public class Inscricao {
     private Evento evento;
     
     @Column(name = "valor_total")
+    @JsonProperty(access = Access.READ_ONLY)
     private double valorTotal;
 
     @Column(name = "status_inscricao")
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     @Enumerated(EnumType.STRING)
+    @JsonProperty(access = Access.READ_ONLY)
     private StatusInscricao statusInscricao;
 
     @Column(name = "data_pagamento")
     @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonProperty(access = Access.READ_ONLY)
     private Date dataPagamento;
 
     @ManyToMany
