@@ -32,9 +32,9 @@ public class DefaultApiTest {
 
     
     /**
-     * Retorna uma lista de usuário.
+     * Cadastra Usuário
      *
-     * 
+     * Pa
      *
      * @throws ApiException
      *          if the Api call fails

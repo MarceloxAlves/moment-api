@@ -4,7 +4,7 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**usuarioCadastrarPost**](DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Retorna uma lista de usuário.
+[**usuarioCadastrarPost**](DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Cadastra Usuário
 [**usuarioListarGet**](DefaultApi.md#usuarioListarGet) | **GET** /usuario/listar | Retorna uma lista de usuário.
 
 
@@ -12,7 +12,9 @@ Method | HTTP request | Description
 # **usuarioCadastrarPost**
 > usuarioCadastrarPost()
 
-Retorna uma lista de usuário.
+Cadastra Usuário
+
+Pa
 
 ### Example
 ```java
