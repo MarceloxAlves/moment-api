@@ -58,6 +58,32 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 
+import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        
+        DefaultApi apiInstance = new DefaultApi();
+        String nome = "nome_example"; // String | 
+        String email = "email_example"; // String | 
+        String password = "password_example"; // String | 
+        Integer evento = 56; // Integer | 
+        try {
+            apiInstance.usuarioCadastrarPost(nome, email, password, evento);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#usuarioCadastrarPost");
+            e.printStackTrace();
+        }
+    }
+}
+
 ```
 
 ## Documentation for API Endpoints
@@ -66,6 +92,9 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**usuarioCadastrarPost**](docs/DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Cadastra Usuário
+*DefaultApi* | [**usuarioListarGet**](docs/DefaultApi.md#usuarioListarGet) | **GET** /usuario/listar | Retorna uma lista de usuário.
+*DefaultApi* | [**usuarioLoginPost**](docs/DefaultApi.md#usuarioLoginPost) | **POST** /usuario/login | Logar Usuário
 
 
 ## Documentation for Models
@@ -82,5 +111,6 @@ Authentication schemes defined for the API:
 It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
 
 ## Author
+
 
 
