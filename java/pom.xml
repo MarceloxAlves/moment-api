@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.swagger</groupId>
-  <artifactId>swagger-java-client</artifactId>
+  <artifactId>org.moment</artifactId>
   <packaging>jar</packaging>
-  <name>swagger-java-client</name>
-  <version>1.0.0</version>
+  <name>org.moment</name>
+  <version>0.1.0</version>
   <url>https://github.com/swagger-api/swagger-codegen</url>
   <description>Swagger Java</description>
   <scm>
@@ -17,7 +17,7 @@
   <licenses>
     <license>
       <name>Unlicense</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+      <url>http://unlicense.org</url>
       <distribution>repo</distribution>
     </license>
   </licenses>

@@ -1,4 +1,4 @@
-# swagger-java-client
+# org.moment
 
 ## Requirements
 
@@ -27,8 +27,8 @@ Add this dependency to your project's POM:
 ```xml
 <dependency>
     <groupId>io.swagger</groupId>
-    <artifactId>swagger-java-client</artifactId>
-    <version>1.0.0</version>
+    <artifactId>org.moment</artifactId>
+    <version>0.1.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.swagger:swagger-java-client:1.0.0"
+compile "io.swagger:org.moment:0.1.0"
 ```
 
 ### Others
@@ -49,7 +49,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/swagger-java-client-1.0.0.jar
+* target/org.moment-0.1.0.jar
 * target/lib/*.jar
 
 ## Getting Started
@@ -57,29 +57,6 @@ Then manually install the following JARs:
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
 ```java
-
-import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.AdminsApi;
-
-import java.io.File;
-import java.util.*;
-
-public class AdminsApiExample {
-
-    public static void main(String[] args) {
-        
-        AdminsApi apiInstance = new AdminsApi();
-        InventoryItem inventoryItem = new InventoryItem(); // InventoryItem | Inventory item to add
-        try {
-            apiInstance.addInventory(inventoryItem);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AdminsApi#addInventory");
-            e.printStackTrace();
-        }
-    }
-}
 
 ```
 
@@ -89,14 +66,10 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AdminsApi* | [**addInventory**](docs/AdminsApi.md#addInventory) | **POST** /inventory | adds an inventory item
-*DevelopersApi* | [**searchInventory**](docs/DevelopersApi.md#searchInventory) | **GET** /inventory | searches inventory
 
 
 ## Documentation for Models
 
- - [InventoryItem](docs/InventoryItem.md)
- - [Manufacturer](docs/Manufacturer.md)
 
 
 ## Documentation for Authorization
@@ -110,5 +83,4 @@ It's recommended to create an instance of `ApiClient` per thread in a multithrea
 
 ## Author
 
-you@your-company.com
 
