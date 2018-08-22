@@ -41,7 +41,11 @@ public class DefaultApiTest {
      */
     @Test
     public void usuarioCadastrarPostTest() throws ApiException {
-        api.usuarioCadastrarPost();
+        String nome = null;
+        String email = null;
+        String password = null;
+        Integer evento = null;
+        api.usuarioCadastrarPost(nome, email, password, evento);
 
         // TODO: test validations
     }

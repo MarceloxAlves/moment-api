@@ -55,19 +55,28 @@ public class DefaultApi {
 
     /**
      * Build call for usuarioCadastrarPost
+     * @param nome  (required)
+     * @param email  (required)
+     * @param password  (required)
+     * @param evento  (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call usuarioCadastrarPostCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call usuarioCadastrarPostCall(String nome, String email, String password, Integer evento, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/usuario/cadastrar";
+        String localVarPath = "/usuario/cadastrar"
+            .replaceAll("\\{" + "nome" + "\\}", apiClient.escapeString(nome.toString()))
+            .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(email.toString()))
+            .replaceAll("\\{" + "password" + "\\}", apiClient.escapeString(password.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (evento != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("evento", evento));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -102,10 +111,30 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call usuarioCadastrarPostValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call usuarioCadastrarPostValidateBeforeCall(String nome, String email, String password, Integer evento, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'nome' is set
+        if (nome == null) {
+            throw new ApiException("Missing the required parameter 'nome' when calling usuarioCadastrarPost(Async)");
+        }
+        
+        // verify the required parameter 'email' is set
+        if (email == null) {
+            throw new ApiException("Missing the required parameter 'email' when calling usuarioCadastrarPost(Async)");
+        }
+        
+        // verify the required parameter 'password' is set
+        if (password == null) {
+            throw new ApiException("Missing the required parameter 'password' when calling usuarioCadastrarPost(Async)");
+        }
+        
+        // verify the required parameter 'evento' is set
+        if (evento == null) {
+            throw new ApiException("Missing the required parameter 'evento' when calling usuarioCadastrarPost(Async)");
+        }
         
 
-        com.squareup.okhttp.Call call = usuarioCadastrarPostCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = usuarioCadastrarPostCall(nome, email, password, evento, progressListener, progressRequestListener);
         return call;
 
     }
@@ -113,31 +142,43 @@ public class DefaultApi {
     /**
      * Cadastra Usuário
      * Recebe uma response de usuário
+     * @param nome  (required)
+     * @param email  (required)
+     * @param password  (required)
+     * @param evento  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void usuarioCadastrarPost() throws ApiException {
-        usuarioCadastrarPostWithHttpInfo();
+    public void usuarioCadastrarPost(String nome, String email, String password, Integer evento) throws ApiException {
+        usuarioCadastrarPostWithHttpInfo(nome, email, password, evento);
     }
 
     /**
      * Cadastra Usuário
      * Recebe uma response de usuário
+     * @param nome  (required)
+     * @param email  (required)
+     * @param password  (required)
+     * @param evento  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> usuarioCadastrarPostWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = usuarioCadastrarPostValidateBeforeCall(null, null);
+    public ApiResponse<Void> usuarioCadastrarPostWithHttpInfo(String nome, String email, String password, Integer evento) throws ApiException {
+        com.squareup.okhttp.Call call = usuarioCadastrarPostValidateBeforeCall(nome, email, password, evento, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Cadastra Usuário (asynchronously)
      * Recebe uma response de usuário
+     * @param nome  (required)
+     * @param email  (required)
+     * @param password  (required)
+     * @param evento  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call usuarioCadastrarPostAsync(final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call usuarioCadastrarPostAsync(String nome, String email, String password, Integer evento, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -158,7 +199,7 @@ public class DefaultApi {
             };
         }
 
-        com.squareup.okhttp.Call call = usuarioCadastrarPostValidateBeforeCall(progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = usuarioCadastrarPostValidateBeforeCall(nome, email, password, evento, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

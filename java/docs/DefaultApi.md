@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="usuarioCadastrarPost"></a>
 # **usuarioCadastrarPost**
-> usuarioCadastrarPost()
+> usuarioCadastrarPost(nome, email, password, evento)
 
 Cadastra Usuário
 
@@ -24,8 +24,12 @@ Recebe uma response de usuário
 
 
 DefaultApi apiInstance = new DefaultApi();
+String nome = "nome_example"; // String | 
+String email = "email_example"; // String | 
+String password = "password_example"; // String | 
+Integer evento = 56; // Integer | 
 try {
-    apiInstance.usuarioCadastrarPost();
+    apiInstance.usuarioCadastrarPost(nome, email, password, evento);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#usuarioCadastrarPost");
     e.printStackTrace();
@@ -33,7 +37,13 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **nome** | **String**|  |
+ **email** | **String**|  |
+ **password** | **String**|  |
+ **evento** | **Integer**|  |
 
 ### Return type
 

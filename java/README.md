@@ -71,8 +71,12 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         
         DefaultApi apiInstance = new DefaultApi();
+        String nome = "nome_example"; // String | 
+        String email = "email_example"; // String | 
+        String password = "password_example"; // String | 
+        Integer evento = 56; // Integer | 
         try {
-            apiInstance.usuarioCadastrarPost();
+            apiInstance.usuarioCadastrarPost(nome, email, password, evento);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#usuarioCadastrarPost");
             e.printStackTrace();
