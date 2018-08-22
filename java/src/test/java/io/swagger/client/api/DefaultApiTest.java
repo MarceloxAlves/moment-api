@@ -34,7 +34,7 @@ public class DefaultApiTest {
     /**
      * Cadastra Usuário
      *
-     * Pa
+     * Recebe uma response de usuário
      *
      * @throws ApiException
      *          if the Api call fails

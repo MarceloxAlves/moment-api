@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Cadastra Usuário
 
-Pa
+Recebe uma response de usuário
 
 ### Example
 ```java
