@@ -32,9 +32,21 @@ public class CupomController {
     public List<Cupom> getAllCupom() {
         return cupomService.findAll();
     }
+
+
+    @GetMapping(path = "/aplicar/{codigo}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = "application/json")
+    public ResultData aplicar(@PathVariable(name = "codigo") String codigo){
+        ResultData resultData = new ResultData();
+        if (!cupomService.aplicarCupom(codigo)){
+            resultData.error();
+            resultData.setMessage("Cupom Inválido");
+        }
+        resultData.setMessage("Cupom utilizado com Sucesso!");
+        return resultData;
+    }
     
-    @PostMapping(path = "/cadastrar", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = "application/json")
-    public ResultData criarCupom(@Valid @RequestBody Cupom cupom, BindingResult bindingResult){
+    @PostMapping(path = "/cadastrar/{quantidade}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = "application/json")
+    public ResultData criarCupom(@Valid @RequestBody Cupom cupom, @PathVariable(value = "quantidade") int quantidade, BindingResult bindingResult){
     	ResultData resultData = new ResultData();
         cupomValidator.validate(cupom, bindingResult);
         if(bindingResult.hasErrors()){
@@ -42,7 +54,7 @@ public class CupomController {
             resultData.setField("erros", bindingResult.getAllErrors());
             return resultData;
         }
-        cupomService.criarCupom(cupom);
+        cupomService.criarCupom(cupom, quantidade);
 
         return resultData;
     }
