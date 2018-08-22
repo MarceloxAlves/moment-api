@@ -1,12 +1,17 @@
 package controller;
 
 import helper.ResultData;
+import model.Inscricao;
 import model.Login;
 import model.Usuario;
+import repository.UsuarioRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import service.InscricaoService;
 import service.UsuarioService;
 import validator.UsuarioValidator;
 
@@ -32,6 +37,11 @@ public class UsuarioController {
     @GetMapping("/listar")
     public List<Usuario> getAllEventos() {
         return usuarioService.findAll();
+    }
+    
+    @GetMapping("/minhas-inscricoes/{id}")
+    public List<Inscricao> obterInscricoes(@PathVariable Long id) {
+        return usuarioService.minhasInscricoes(id);
     }
 
     @GetMapping("/count")

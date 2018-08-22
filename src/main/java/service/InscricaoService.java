@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import model.Atividade;
 import model.Inscricao;
+import model.StatusInscricao;
 import repository.InscricaoRepository;
 
 @Service
@@ -26,9 +27,11 @@ public class InscricaoService {
 			Optional<Atividade> atividadeEncontrada = atividadeService.getAtividade(atividade.getId());
 			valorTotal += atividadeEncontrada.get().getValor();
 		}
+		inscricao.setStatusInscricao(StatusInscricao.NAOPAGO);
 		inscricao.setValorTotal(valorTotal);
 		inscricaoRepository.save(inscricao);
 	}
+	
 	
 	public List<Inscricao> ListarTodos() {
 		return inscricaoRepository.findAll();
