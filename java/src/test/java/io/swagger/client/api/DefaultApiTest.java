@@ -98,6 +98,22 @@ public class DefaultApiTest {
     }
     
     /**
+     * Cancelar do evento.
+     *
+     * Cancelamento do evento relacionado ao id.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void eventoCancelarIdGetTest() throws ApiException {
+        String id = null;
+        api.eventoCancelarIdGet(id);
+
+        // TODO: test validations
+    }
+    
+    /**
      * listar eventos
      *
      * Retorna uma lista de usuário.
@@ -115,7 +131,7 @@ public class DefaultApiTest {
     /**
      * Mudar estado do evento.
      *
-     * Muda o estado do evento
+     * Muda o estado do evento relacionado ao id.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -124,6 +140,22 @@ public class DefaultApiTest {
     public void eventoMudarEstadoIdGetTest() throws ApiException {
         String id = null;
         api.eventoMudarEstadoIdGet(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Participar do evento.
+     *
+     * Participar do evento relacionado ao id.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void eventoParticiparIdGetTest() throws ApiException {
+        String id = null;
+        api.eventoParticiparIdGet(id);
 
         // TODO: test validations
     }

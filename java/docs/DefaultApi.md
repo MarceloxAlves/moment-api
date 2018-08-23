@@ -8,8 +8,10 @@ Method | HTTP request | Description
 [**atividadeCadastrarPost**](DefaultApi.md#atividadeCadastrarPost) | **POST** /atividade/cadastrar | Cadastrar Atividade
 [**atividadeListarGet**](DefaultApi.md#atividadeListarGet) | **GET** /atividade/listar | Listar atividades
 [**atividadeListarTiposGet**](DefaultApi.md#atividadeListarTiposGet) | **GET** /atividade/listar-tipos | Listar tipos de atividades
+[**eventoCancelarIdGet**](DefaultApi.md#eventoCancelarIdGet) | **GET** /evento/cancelar/{id} | Cancelar do evento.
 [**eventoListarGet**](DefaultApi.md#eventoListarGet) | **GET** /evento/listar | listar eventos
 [**eventoMudarEstadoIdGet**](DefaultApi.md#eventoMudarEstadoIdGet) | **GET** /evento/mudar-estado/{id} | Mudar estado do evento.
+[**eventoParticiparIdGet**](DefaultApi.md#eventoParticiparIdGet) | **GET** /evento/participar/{id} | Participar do evento.
 [**usuarioCadastrarPost**](DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Cadastra Usuário
 [**usuarioEmailGet**](DefaultApi.md#usuarioEmailGet) | **GET** /usuario/{email} | Mostrar Usuário
 [**usuarioIdMinhasInscricoesGet**](DefaultApi.md#usuarioIdMinhasInscricoesGet) | **GET** /usuario/{id}/minhas-inscricoes/ | Retorna inscrições do usuario
@@ -193,6 +195,50 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="eventoCancelarIdGet"></a>
+# **eventoCancelarIdGet**
+> eventoCancelarIdGet(id)
+
+Cancelar do evento.
+
+Cancelamento do evento relacionado ao id.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String id = "id_example"; // String | 
+try {
+    apiInstance.eventoCancelarIdGet(id);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#eventoCancelarIdGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
 <a name="eventoListarGet"></a>
 # **eventoListarGet**
 > eventoListarGet()
@@ -239,7 +285,7 @@ No authorization required
 
 Mudar estado do evento.
 
-Muda o estado do evento
+Muda o estado do evento relacionado ao id.
 
 ### Example
 ```java
@@ -254,6 +300,50 @@ try {
     apiInstance.eventoMudarEstadoIdGet(id);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#eventoMudarEstadoIdGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a name="eventoParticiparIdGet"></a>
+# **eventoParticiparIdGet**
+> eventoParticiparIdGet(id)
+
+Participar do evento.
+
+Participar do evento relacionado ao id.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String id = "id_example"; // String | 
+try {
+    apiInstance.eventoParticiparIdGet(id);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#eventoParticiparIdGet");
     e.printStackTrace();
 }
 ```
