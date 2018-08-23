@@ -4,6 +4,7 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**atividadeCadastrarPost**](DefaultApi.md#atividadeCadastrarPost) | **POST** /atividade/cadastrar | Cadastrar Atividade
 [**atividadeListarGet**](DefaultApi.md#atividadeListarGet) | **GET** /atividade/listar | Retorna uma lista de atividades.
 [**atividadeListarTiposGet**](DefaultApi.md#atividadeListarTiposGet) | **GET** /atividade/listar-tipos | Retorna uma lista dos tipos de atividades.
 [**usuarioCadastrarPost**](DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Cadastra Usuário
@@ -12,6 +13,58 @@ Method | HTTP request | Description
 [**usuarioListarGet**](DefaultApi.md#usuarioListarGet) | **GET** /usuario/listar | Retorna uma lista de usuário.
 [**usuarioLoginPost**](DefaultApi.md#usuarioLoginPost) | **POST** /usuario/login | Logar Usuário
 
+
+<a name="atividadeCadastrarPost"></a>
+# **atividadeCadastrarPost**
+> atividadeCadastrarPost(nome, termino, valor, tipoAtividade, evento)
+
+Cadastrar Atividade
+
+Recebe uma response de atividade
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String nome = "nome_example"; // String | 
+String termino = "termino_example"; // String | 
+Integer valor = 56; // Integer | 
+Integer tipoAtividade = 56; // Integer | 
+Integer evento = 56; // Integer | 
+try {
+    apiInstance.atividadeCadastrarPost(nome, termino, valor, tipoAtividade, evento);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#atividadeCadastrarPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **nome** | **String**|  |
+ **termino** | **String**|  |
+ **valor** | **Integer**|  |
+ **tipoAtividade** | **Integer**|  |
+ **evento** | **Integer**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="atividadeListarGet"></a>
 # **atividadeListarGet**

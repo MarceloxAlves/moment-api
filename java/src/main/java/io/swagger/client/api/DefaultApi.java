@@ -54,6 +54,170 @@ public class DefaultApi {
     }
 
     /**
+     * Build call for atividadeCadastrarPost
+     * @param nome  (required)
+     * @param termino  (required)
+     * @param valor  (required)
+     * @param tipoAtividade  (required)
+     * @param evento  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call atividadeCadastrarPostCall(String nome, String termino, Integer valor, Integer tipoAtividade, Integer evento, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/atividade/cadastrar";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (nome != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("nome", nome));
+        if (termino != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("termino", termino));
+        if (valor != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("valor", valor));
+        if (tipoAtividade != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("tipoAtividade", tipoAtividade));
+        if (evento != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("evento", evento));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call atividadeCadastrarPostValidateBeforeCall(String nome, String termino, Integer valor, Integer tipoAtividade, Integer evento, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'nome' is set
+        if (nome == null) {
+            throw new ApiException("Missing the required parameter 'nome' when calling atividadeCadastrarPost(Async)");
+        }
+        
+        // verify the required parameter 'termino' is set
+        if (termino == null) {
+            throw new ApiException("Missing the required parameter 'termino' when calling atividadeCadastrarPost(Async)");
+        }
+        
+        // verify the required parameter 'valor' is set
+        if (valor == null) {
+            throw new ApiException("Missing the required parameter 'valor' when calling atividadeCadastrarPost(Async)");
+        }
+        
+        // verify the required parameter 'tipoAtividade' is set
+        if (tipoAtividade == null) {
+            throw new ApiException("Missing the required parameter 'tipoAtividade' when calling atividadeCadastrarPost(Async)");
+        }
+        
+        // verify the required parameter 'evento' is set
+        if (evento == null) {
+            throw new ApiException("Missing the required parameter 'evento' when calling atividadeCadastrarPost(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = atividadeCadastrarPostCall(nome, termino, valor, tipoAtividade, evento, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Cadastrar Atividade
+     * Recebe uma response de atividade
+     * @param nome  (required)
+     * @param termino  (required)
+     * @param valor  (required)
+     * @param tipoAtividade  (required)
+     * @param evento  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void atividadeCadastrarPost(String nome, String termino, Integer valor, Integer tipoAtividade, Integer evento) throws ApiException {
+        atividadeCadastrarPostWithHttpInfo(nome, termino, valor, tipoAtividade, evento);
+    }
+
+    /**
+     * Cadastrar Atividade
+     * Recebe uma response de atividade
+     * @param nome  (required)
+     * @param termino  (required)
+     * @param valor  (required)
+     * @param tipoAtividade  (required)
+     * @param evento  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> atividadeCadastrarPostWithHttpInfo(String nome, String termino, Integer valor, Integer tipoAtividade, Integer evento) throws ApiException {
+        com.squareup.okhttp.Call call = atividadeCadastrarPostValidateBeforeCall(nome, termino, valor, tipoAtividade, evento, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Cadastrar Atividade (asynchronously)
+     * Recebe uma response de atividade
+     * @param nome  (required)
+     * @param termino  (required)
+     * @param valor  (required)
+     * @param tipoAtividade  (required)
+     * @param evento  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call atividadeCadastrarPostAsync(String nome, String termino, Integer valor, Integer tipoAtividade, Integer evento, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = atividadeCadastrarPostValidateBeforeCall(nome, termino, valor, tipoAtividade, evento, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
      * Build call for atividadeListarGet
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener

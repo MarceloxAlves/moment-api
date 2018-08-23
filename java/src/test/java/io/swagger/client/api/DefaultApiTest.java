@@ -32,6 +32,26 @@ public class DefaultApiTest {
 
     
     /**
+     * Cadastrar Atividade
+     *
+     * Recebe uma response de atividade
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void atividadeCadastrarPostTest() throws ApiException {
+        String nome = null;
+        String termino = null;
+        Integer valor = null;
+        Integer tipoAtividade = null;
+        Integer evento = null;
+        api.atividadeCadastrarPost(nome, termino, valor, tipoAtividade, evento);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Retorna uma lista de atividades.
      *
      * 

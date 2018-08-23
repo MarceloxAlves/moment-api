@@ -71,10 +71,15 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         
         DefaultApi apiInstance = new DefaultApi();
+        String nome = "nome_example"; // String | 
+        String termino = "termino_example"; // String | 
+        Integer valor = 56; // Integer | 
+        Integer tipoAtividade = 56; // Integer | 
+        Integer evento = 56; // Integer | 
         try {
-            apiInstance.atividadeListarGet();
+            apiInstance.atividadeCadastrarPost(nome, termino, valor, tipoAtividade, evento);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#atividadeListarGet");
+            System.err.println("Exception when calling DefaultApi#atividadeCadastrarPost");
             e.printStackTrace();
         }
     }
@@ -88,6 +93,7 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**atividadeCadastrarPost**](docs/DefaultApi.md#atividadeCadastrarPost) | **POST** /atividade/cadastrar | Cadastrar Atividade
 *DefaultApi* | [**atividadeListarGet**](docs/DefaultApi.md#atividadeListarGet) | **GET** /atividade/listar | Retorna uma lista de atividades.
 *DefaultApi* | [**atividadeListarTiposGet**](docs/DefaultApi.md#atividadeListarTiposGet) | **GET** /atividade/listar-tipos | Retorna uma lista dos tipos de atividades.
 *DefaultApi* | [**usuarioCadastrarPost**](docs/DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Cadastra Usuário
