@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**atividadeCadastrarPost**](DefaultApi.md#atividadeCadastrarPost) | **POST** /atividade/cadastrar | Cadastrar Atividade
 [**atividadeListarGet**](DefaultApi.md#atividadeListarGet) | **GET** /atividade/listar | Listar atividades
 [**atividadeListarTiposGet**](DefaultApi.md#atividadeListarTiposGet) | **GET** /atividade/listar-tipos | Listar tipos de atividades
+[**eventoCadastrarPost**](DefaultApi.md#eventoCadastrarPost) | **POST** /evento/cadastrar | Cadastrar Evento
 [**eventoCancelarIdGet**](DefaultApi.md#eventoCancelarIdGet) | **GET** /evento/cancelar/{id} | Cancelar evento.
 [**eventoDeleteIdDelete**](DefaultApi.md#eventoDeleteIdDelete) | **DELETE** /evento/delete/{id} | Deletar evento.
 [**eventoListarGet**](DefaultApi.md#eventoListarGet) | **GET** /evento/listar | listar eventos
@@ -182,6 +183,60 @@ try {
 
 ### Parameters
 This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="eventoCadastrarPost"></a>
+# **eventoCadastrarPost**
+> eventoCadastrarPost(descricao, dataInicio, dataTermino, estadoEvento, usuario, atividades)
+
+Cadastrar Evento
+
+Recebe uma response de evento
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String descricao = "descricao_example"; // String | 
+String dataInicio = "dataInicio_example"; // String | 
+Integer dataTermino = 56; // Integer | 
+Integer estadoEvento = 56; // Integer | 
+Integer usuario = 56; // Integer | 
+List<Integer> atividades = Arrays.asList(56); // List<Integer> | 
+try {
+    apiInstance.eventoCadastrarPost(descricao, dataInicio, dataTermino, estadoEvento, usuario, atividades);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#eventoCadastrarPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **descricao** | **String**|  |
+ **dataInicio** | **String**|  |
+ **dataTermino** | **Integer**|  |
+ **estadoEvento** | **Integer**|  |
+ **usuario** | **Integer**|  |
+ **atividades** | [**List&lt;Integer&gt;**](Integer.md)|  |
 
 ### Return type
 

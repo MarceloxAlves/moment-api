@@ -98,6 +98,27 @@ public class DefaultApiTest {
     }
     
     /**
+     * Cadastrar Evento
+     *
+     * Recebe uma response de evento
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void eventoCadastrarPostTest() throws ApiException {
+        String descricao = null;
+        String dataInicio = null;
+        Integer dataTermino = null;
+        Integer estadoEvento = null;
+        Integer usuario = null;
+        List<Integer> atividades = null;
+        api.eventoCadastrarPost(descricao, dataInicio, dataTermino, estadoEvento, usuario, atividades);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Cancelar evento.
      *
      * Cancelamento do evento relacionado ao id.
