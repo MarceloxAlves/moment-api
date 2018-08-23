@@ -30,6 +30,10 @@ public class AtividadeService {
         return atividadeRepository.findAll();
     }
     
+    public void delete(Long id) {
+    	atividadeRepository.deleteById(id);
+	}
+    
     public Atividade obterAtividade(Long id) {
         return atividadeRepository.findByIdAtividade(id);
     }

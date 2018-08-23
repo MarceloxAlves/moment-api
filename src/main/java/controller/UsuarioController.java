@@ -1,6 +1,7 @@
 package controller;
 
 import helper.ResultData;
+import model.Evento;
 import model.Inscricao;
 import model.Login;
 import model.Usuario;
@@ -39,7 +40,25 @@ public class UsuarioController {
         return usuarioService.findAll();
     }
     
-    @GetMapping("{id}/minhas-inscricoes/")
+    @DeleteMapping("/delete/{id}")
+    public ResultData deletarUsuario(@PathVariable Long id ) {
+        ResultData resultData = new ResultData();
+        try{
+            Usuario usuario = usuarioService.findByIdUsuario(id);
+            if (usuario != null ) {
+            	usuarioService.delete(id);
+            }
+          resultData.setMessage("Evento deletado com sucesso!" );
+
+        }catch (Exception ex){
+            resultData.error();
+            resultData.setMessage("Erro ao deletar o usuario de codigo " + id);
+        }
+
+        return resultData;
+    }
+    
+    @GetMapping("/{id}/minhas-inscricoes/")
     public List<Inscricao> obterInscricoes(@PathVariable Long id) {
         return usuarioService.minhasInscricoes(id);
     }
@@ -48,7 +67,7 @@ public class UsuarioController {
     public long getTotal() {
         return usuarioService.count();
     }
-
+    
     @PostMapping(path = "/cadastrar",  consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = "application/json")
     public ResultData cadastrarUsuario(@Valid @RequestBody Usuario usuario, BindingResult bindingResult) {
         ResultData resultData = new ResultData();
