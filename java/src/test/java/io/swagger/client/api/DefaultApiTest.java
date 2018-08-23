@@ -333,6 +333,22 @@ public class DefaultApiTest {
     }
     
     /**
+     * Deletar usuario.
+     *
+     * Deletar usuario relacionado ao id.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void usuarioDeleteIdDeleteTest() throws ApiException {
+        String id = null;
+        api.usuarioDeleteIdDelete(id);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Mostrar Usuário
      *
      * Retorna uma usuário baseado no email.

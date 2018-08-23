@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**tagListarGet**](DefaultApi.md#tagListarGet) | **GET** /tag/listar | listar tags
 [**tagPesquisarIdGet**](DefaultApi.md#tagPesquisarIdGet) | **GET** /tag/pesquisar/{id} | Buscar uma tag .
 [**usuarioCadastrarPost**](DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Cadastra Usuário
+[**usuarioDeleteIdDelete**](DefaultApi.md#usuarioDeleteIdDelete) | **DELETE** /usuario/delete/{id} | Deletar usuario.
 [**usuarioEmailGet**](DefaultApi.md#usuarioEmailGet) | **GET** /usuario/{email} | Mostrar Usuário
 [**usuarioIdMinhasInscricoesGet**](DefaultApi.md#usuarioIdMinhasInscricoesGet) | **GET** /usuario/{id}/minhas-inscricoes/ | Retorna inscrições do usuario
 [**usuarioListarGet**](DefaultApi.md#usuarioListarGet) | **GET** /usuario/listar | listar usuarios
@@ -835,6 +836,50 @@ No authorization required
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+<a name="usuarioDeleteIdDelete"></a>
+# **usuarioDeleteIdDelete**
+> usuarioDeleteIdDelete(id)
+
+Deletar usuario.
+
+Deletar usuario relacionado ao id.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String id = "id_example"; // String | 
+try {
+    apiInstance.usuarioDeleteIdDelete(id);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#usuarioDeleteIdDelete");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 <a name="usuarioEmailGet"></a>
 # **usuarioEmailGet**

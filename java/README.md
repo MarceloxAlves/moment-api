@@ -107,6 +107,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**tagListarGet**](docs/DefaultApi.md#tagListarGet) | **GET** /tag/listar | listar tags
 *DefaultApi* | [**tagPesquisarIdGet**](docs/DefaultApi.md#tagPesquisarIdGet) | **GET** /tag/pesquisar/{id} | Buscar uma tag .
 *DefaultApi* | [**usuarioCadastrarPost**](docs/DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Cadastra Usuário
+*DefaultApi* | [**usuarioDeleteIdDelete**](docs/DefaultApi.md#usuarioDeleteIdDelete) | **DELETE** /usuario/delete/{id} | Deletar usuario.
 *DefaultApi* | [**usuarioEmailGet**](docs/DefaultApi.md#usuarioEmailGet) | **GET** /usuario/{email} | Mostrar Usuário
 *DefaultApi* | [**usuarioIdMinhasInscricoesGet**](docs/DefaultApi.md#usuarioIdMinhasInscricoesGet) | **GET** /usuario/{id}/minhas-inscricoes/ | Retorna inscrições do usuario
 *DefaultApi* | [**usuarioListarGet**](docs/DefaultApi.md#usuarioListarGet) | **GET** /usuario/listar | listar usuarios
