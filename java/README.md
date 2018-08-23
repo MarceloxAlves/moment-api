@@ -71,14 +71,10 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         
         DefaultApi apiInstance = new DefaultApi();
-        String nome = "nome_example"; // String | 
-        String email = "email_example"; // String | 
-        String password = "password_example"; // String | 
-        Integer evento = 56; // Integer | 
         try {
-            apiInstance.usuarioCadastrarPost(nome, email, password, evento);
+            apiInstance.atividadeListarGet();
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#usuarioCadastrarPost");
+            System.err.println("Exception when calling DefaultApi#atividadeListarGet");
             e.printStackTrace();
         }
     }
@@ -92,6 +88,7 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**atividadeListarGet**](docs/DefaultApi.md#atividadeListarGet) | **GET** /atividade/listar | Retorna uma lista de atividades.
 *DefaultApi* | [**usuarioCadastrarPost**](docs/DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Cadastra Usuário
 *DefaultApi* | [**usuarioEmailGet**](docs/DefaultApi.md#usuarioEmailGet) | **GET** /usuario/{email} | Retorna uma usuário baseado no email.
 *DefaultApi* | [**usuarioIdMinhasInscricoesGet**](docs/DefaultApi.md#usuarioIdMinhasInscricoesGet) | **GET** /usuario/{id}/minhas-inscricoes/ | Retorna uma lista com as inscrições do usuario.

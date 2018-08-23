@@ -32,6 +32,21 @@ public class DefaultApiTest {
 
     
     /**
+     * Retorna uma lista de atividades.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void atividadeListarGetTest() throws ApiException {
+        api.atividadeListarGet();
+
+        // TODO: test validations
+    }
+    
+    /**
      * Cadastra Usuário
      *
      * Recebe uma response de usuário
