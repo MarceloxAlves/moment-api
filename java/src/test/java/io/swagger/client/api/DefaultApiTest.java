@@ -267,6 +267,53 @@ public class DefaultApiTest {
     }
     
     /**
+     * Cadastrar uma tag
+     *
+     * Recebe uma response de uma tag
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void tagCadastrarPostTest() throws ApiException {
+        String descricao = null;
+        api.tagCadastrarPost(descricao);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * listar tags
+     *
+     * Retorna uma lista de tags.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void tagListarGetTest() throws ApiException {
+        api.tagListarGet();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Buscar uma tag .
+     *
+     * Retorna uma tag baseado no id
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void tagPesquisarIdGetTest() throws ApiException {
+        String id = null;
+        api.tagPesquisarIdGet(id);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Cadastra Usuário
      *
      * Recebe uma response de usuário

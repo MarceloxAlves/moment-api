@@ -18,6 +18,9 @@ Method | HTTP request | Description
 [**eventoListarGet**](DefaultApi.md#eventoListarGet) | **GET** /evento/listar | listar eventos
 [**eventoMudarEstadoIdGet**](DefaultApi.md#eventoMudarEstadoIdGet) | **GET** /evento/mudar-estado/{id} | Mudar estado do evento.
 [**eventoParticiparIdGet**](DefaultApi.md#eventoParticiparIdGet) | **GET** /evento/participar/{id} | Participar do evento.
+[**tagCadastrarPost**](DefaultApi.md#tagCadastrarPost) | **POST** /tag/cadastrar | Cadastrar uma tag
+[**tagListarGet**](DefaultApi.md#tagListarGet) | **GET** /tag/listar | listar tags
+[**tagPesquisarIdGet**](DefaultApi.md#tagPesquisarIdGet) | **GET** /tag/pesquisar/{id} | Buscar uma tag .
 [**usuarioCadastrarPost**](DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Cadastra Usuário
 [**usuarioEmailGet**](DefaultApi.md#usuarioEmailGet) | **GET** /usuario/{email} | Mostrar Usuário
 [**usuarioIdMinhasInscricoesGet**](DefaultApi.md#usuarioIdMinhasInscricoesGet) | **GET** /usuario/{id}/minhas-inscricoes/ | Retorna inscrições do usuario
@@ -632,6 +635,134 @@ try {
     apiInstance.eventoParticiparIdGet(id);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#eventoParticiparIdGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a name="tagCadastrarPost"></a>
+# **tagCadastrarPost**
+> tagCadastrarPost(descricao)
+
+Cadastrar uma tag
+
+Recebe uma response de uma tag
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String descricao = "descricao_example"; // String | 
+try {
+    apiInstance.tagCadastrarPost(descricao);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#tagCadastrarPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **descricao** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="tagListarGet"></a>
+# **tagListarGet**
+> tagListarGet()
+
+listar tags
+
+Retorna uma lista de tags.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    apiInstance.tagListarGet();
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#tagListarGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="tagPesquisarIdGet"></a>
+# **tagPesquisarIdGet**
+> tagPesquisarIdGet(id)
+
+Buscar uma tag .
+
+Retorna uma tag baseado no id
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String id = "id_example"; // String | 
+try {
+    apiInstance.tagPesquisarIdGet(id);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#tagPesquisarIdGet");
     e.printStackTrace();
 }
 ```

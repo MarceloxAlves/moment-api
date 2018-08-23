@@ -103,6 +103,9 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**eventoListarGet**](docs/DefaultApi.md#eventoListarGet) | **GET** /evento/listar | listar eventos
 *DefaultApi* | [**eventoMudarEstadoIdGet**](docs/DefaultApi.md#eventoMudarEstadoIdGet) | **GET** /evento/mudar-estado/{id} | Mudar estado do evento.
 *DefaultApi* | [**eventoParticiparIdGet**](docs/DefaultApi.md#eventoParticiparIdGet) | **GET** /evento/participar/{id} | Participar do evento.
+*DefaultApi* | [**tagCadastrarPost**](docs/DefaultApi.md#tagCadastrarPost) | **POST** /tag/cadastrar | Cadastrar uma tag
+*DefaultApi* | [**tagListarGet**](docs/DefaultApi.md#tagListarGet) | **GET** /tag/listar | listar tags
+*DefaultApi* | [**tagPesquisarIdGet**](docs/DefaultApi.md#tagPesquisarIdGet) | **GET** /tag/pesquisar/{id} | Buscar uma tag .
 *DefaultApi* | [**usuarioCadastrarPost**](docs/DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Cadastra Usuário
 *DefaultApi* | [**usuarioEmailGet**](docs/DefaultApi.md#usuarioEmailGet) | **GET** /usuario/{email} | Mostrar Usuário
 *DefaultApi* | [**usuarioIdMinhasInscricoesGet**](docs/DefaultApi.md#usuarioIdMinhasInscricoesGet) | **GET** /usuario/{id}/minhas-inscricoes/ | Retorna inscrições do usuario
