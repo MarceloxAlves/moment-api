@@ -37,7 +37,7 @@ public class CupomController {
     }
 
 
-    @GetMapping(path = "/aplicar/{codigo}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = "application/json")
+    @GetMapping(path = "/aplicar/{codigo}", produces = "application/json")
     public ResultData aplicar(@PathVariable(name = "codigo") String codigo){
         ResultData resultData = new ResultData();
         Cupom cupom = cupomService.aplicarCupom(codigo);
