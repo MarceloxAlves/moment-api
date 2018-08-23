@@ -3,6 +3,7 @@ package controller;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import helper.ResultData;
 import model.Atividade;
+import model.Cupom;
 import model.TipoAtividade;
 import model.Usuario;
 
@@ -21,6 +22,8 @@ import service.AtividadeService;
 import validator.AtividadeValidator;
 
 import javax.validation.Valid;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,6 +45,15 @@ public class AtividadeController {
     @GetMapping("/listar-tipos")
     public List<TipoAtividade> listarTipoAtividade() {
         return atividadeService.listarTipoAtividade();
+    }
+    
+    @GetMapping("/{id}/atividades")
+    public List<Atividade> obterAtividades(@PathVariable Long id) {
+        List<Atividade> atividades = atividadeService.getatividadesEvento(id);
+        if(atividades.isEmpty()) {
+        	return new ArrayList<Atividade>();
+        }
+        return atividades;
     }
     
     @DeleteMapping("/delete/{id}")

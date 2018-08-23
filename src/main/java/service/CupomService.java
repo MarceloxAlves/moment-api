@@ -52,18 +52,18 @@ public class CupomService {
 		return false;
 	}
 
-	public boolean aplicarCupom(String codigo) {
+	public Cupom aplicarCupom(String codigo) {
 
 		try{
 			Cupom cupom = this.getCupom(Codificador.decodificar(codigo));
 			if(this.isValido(cupom)){
 				cupom.setUtilizado();
-				cupomRepository.save(cupom);
+				return cupomRepository.save(cupom);
 			}
 		}catch (IllegalArgumentException exeption){
-			return false;
+			return null;
 		}
 
-		return false;
+		return null;
 	}
 }

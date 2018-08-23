@@ -40,10 +40,13 @@ public class CupomController {
     @GetMapping(path = "/aplicar/{codigo}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = "application/json")
     public ResultData aplicar(@PathVariable(name = "codigo") String codigo){
         ResultData resultData = new ResultData();
-        if (!cupomService.aplicarCupom(codigo)){
+        Cupom cupom = cupomService.aplicarCupom(codigo);
+        if (cupom == null){
             resultData.error();
             resultData.setMessage("Cupom Inválido");
+            return resultData;
         }
+        resultData.setField("cupom", cupom);
         resultData.setMessage("Cupom utilizado com Sucesso!");
         return resultData;
     }
