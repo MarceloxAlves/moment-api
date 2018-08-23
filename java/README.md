@@ -93,6 +93,9 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**atividadeCadastrarPost**](docs/DefaultApi.md#atividadeCadastrarPost) | **POST** /atividade/cadastrar | Cadastrar Atividade
 *DefaultApi* | [**atividadeListarGet**](docs/DefaultApi.md#atividadeListarGet) | **GET** /atividade/listar | Listar atividades
 *DefaultApi* | [**atividadeListarTiposGet**](docs/DefaultApi.md#atividadeListarTiposGet) | **GET** /atividade/listar-tipos | Listar tipos de atividades
+*DefaultApi* | [**cupomAplicarCodigoGet**](docs/DefaultApi.md#cupomAplicarCodigoGet) | **GET** /cupom/aplicar/{codigo} | listar cupons
+*DefaultApi* | [**cupomIdCuponsGet**](docs/DefaultApi.md#cupomIdCuponsGet) | **GET** /cupom/{id}/cupons | Obter cupons
+*DefaultApi* | [**cupomListarGet**](docs/DefaultApi.md#cupomListarGet) | **GET** /cupom/listar | listar cupons
 *DefaultApi* | [**eventoCadastrarPost**](docs/DefaultApi.md#eventoCadastrarPost) | **POST** /evento/cadastrar | Cadastrar Evento
 *DefaultApi* | [**eventoCancelarIdGet**](docs/DefaultApi.md#eventoCancelarIdGet) | **GET** /evento/cancelar/{id} | Cancelar evento.
 *DefaultApi* | [**eventoDeleteIdDelete**](docs/DefaultApi.md#eventoDeleteIdDelete) | **DELETE** /evento/delete/{id} | Deletar evento.

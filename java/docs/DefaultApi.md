@@ -8,6 +8,9 @@ Method | HTTP request | Description
 [**atividadeCadastrarPost**](DefaultApi.md#atividadeCadastrarPost) | **POST** /atividade/cadastrar | Cadastrar Atividade
 [**atividadeListarGet**](DefaultApi.md#atividadeListarGet) | **GET** /atividade/listar | Listar atividades
 [**atividadeListarTiposGet**](DefaultApi.md#atividadeListarTiposGet) | **GET** /atividade/listar-tipos | Listar tipos de atividades
+[**cupomAplicarCodigoGet**](DefaultApi.md#cupomAplicarCodigoGet) | **GET** /cupom/aplicar/{codigo} | listar cupons
+[**cupomIdCuponsGet**](DefaultApi.md#cupomIdCuponsGet) | **GET** /cupom/{id}/cupons | Obter cupons
+[**cupomListarGet**](DefaultApi.md#cupomListarGet) | **GET** /cupom/listar | listar cupons
 [**eventoCadastrarPost**](DefaultApi.md#eventoCadastrarPost) | **POST** /evento/cadastrar | Cadastrar Evento
 [**eventoCancelarIdGet**](DefaultApi.md#eventoCancelarIdGet) | **GET** /evento/cancelar/{id} | Cancelar evento.
 [**eventoDeleteIdDelete**](DefaultApi.md#eventoDeleteIdDelete) | **DELETE** /evento/delete/{id} | Deletar evento.
@@ -195,6 +198,134 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="cupomAplicarCodigoGet"></a>
+# **cupomAplicarCodigoGet**
+> cupomAplicarCodigoGet(codigo)
+
+listar cupons
+
+Retorna uma lista de cupons.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String codigo = "codigo_example"; // String | 
+try {
+    apiInstance.cupomAplicarCodigoGet(codigo);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#cupomAplicarCodigoGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **codigo** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="cupomIdCuponsGet"></a>
+# **cupomIdCuponsGet**
+> cupomIdCuponsGet(id)
+
+Obter cupons
+
+Retorna uma lista de cupons.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String id = "id_example"; // String | 
+try {
+    apiInstance.cupomIdCuponsGet(id);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#cupomIdCuponsGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="cupomListarGet"></a>
+# **cupomListarGet**
+> cupomListarGet()
+
+listar cupons
+
+Retorna uma lista de cupons.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    apiInstance.cupomListarGet();
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#cupomListarGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="eventoCadastrarPost"></a>

@@ -98,6 +98,53 @@ public class DefaultApiTest {
     }
     
     /**
+     * listar cupons
+     *
+     * Retorna uma lista de cupons.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void cupomAplicarCodigoGetTest() throws ApiException {
+        String codigo = null;
+        api.cupomAplicarCodigoGet(codigo);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Obter cupons
+     *
+     * Retorna uma lista de cupons.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void cupomIdCuponsGetTest() throws ApiException {
+        String id = null;
+        api.cupomIdCuponsGet(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * listar cupons
+     *
+     * Retorna uma lista de cupons.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void cupomListarGetTest() throws ApiException {
+        api.cupomListarGet();
+
+        // TODO: test validations
+    }
+    
+    /**
      * Cadastrar Evento
      *
      * Recebe uma response de evento
