@@ -19,6 +19,7 @@ public class CupomService {
 	public void criarCupom(Cupom cupom, int quantidade) {
 		for (int i = 0; i < quantidade; i++) {
 			Cupom novoCupom  = new Cupom();
+			novoCupom.setDescricao(cupom.getDescricao());
 			novoCupom.setDataValidade(cupom.getDataValidade());
 			novoCupom.setDesconto(cupom.getDesconto());
 			novoCupom.setEvento(cupom.getEvento());
