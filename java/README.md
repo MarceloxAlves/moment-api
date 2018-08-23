@@ -94,6 +94,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**atividadeListarGet**](docs/DefaultApi.md#atividadeListarGet) | **GET** /atividade/listar | Listar atividades
 *DefaultApi* | [**atividadeListarTiposGet**](docs/DefaultApi.md#atividadeListarTiposGet) | **GET** /atividade/listar-tipos | Listar tipos de atividades
 *DefaultApi* | [**cupomAplicarCodigoGet**](docs/DefaultApi.md#cupomAplicarCodigoGet) | **GET** /cupom/aplicar/{codigo} | listar cupons
+*DefaultApi* | [**cupomCadastrarPost**](docs/DefaultApi.md#cupomCadastrarPost) | **POST** /cupom/cadastrar | Cadastrar um Cupom
 *DefaultApi* | [**cupomIdCuponsGet**](docs/DefaultApi.md#cupomIdCuponsGet) | **GET** /cupom/{id}/cupons | Obter cupons
 *DefaultApi* | [**cupomListarGet**](docs/DefaultApi.md#cupomListarGet) | **GET** /cupom/listar | listar cupons
 *DefaultApi* | [**eventoCadastrarPost**](docs/DefaultApi.md#eventoCadastrarPost) | **POST** /evento/cadastrar | Cadastrar Evento

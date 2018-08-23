@@ -674,6 +674,159 @@ public class DefaultApi {
         return call;
     }
     /**
+     * Build call for cupomCadastrarPost
+     * @param descricao  (required)
+     * @param evento  (required)
+     * @param dataValidade  (required)
+     * @param utilizado  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call cupomCadastrarPostCall(String descricao, Integer evento, Integer dataValidade, Boolean utilizado, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/cupom/cadastrar";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (descricao != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("descricao", descricao));
+        if (evento != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("evento", evento));
+        if (dataValidade != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("data_validade", dataValidade));
+        if (utilizado != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("utilizado", utilizado));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call cupomCadastrarPostValidateBeforeCall(String descricao, Integer evento, Integer dataValidade, Boolean utilizado, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'descricao' is set
+        if (descricao == null) {
+            throw new ApiException("Missing the required parameter 'descricao' when calling cupomCadastrarPost(Async)");
+        }
+        
+        // verify the required parameter 'evento' is set
+        if (evento == null) {
+            throw new ApiException("Missing the required parameter 'evento' when calling cupomCadastrarPost(Async)");
+        }
+        
+        // verify the required parameter 'dataValidade' is set
+        if (dataValidade == null) {
+            throw new ApiException("Missing the required parameter 'dataValidade' when calling cupomCadastrarPost(Async)");
+        }
+        
+        // verify the required parameter 'utilizado' is set
+        if (utilizado == null) {
+            throw new ApiException("Missing the required parameter 'utilizado' when calling cupomCadastrarPost(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = cupomCadastrarPostCall(descricao, evento, dataValidade, utilizado, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Cadastrar um Cupom
+     * Recebe uma response de Cupom
+     * @param descricao  (required)
+     * @param evento  (required)
+     * @param dataValidade  (required)
+     * @param utilizado  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void cupomCadastrarPost(String descricao, Integer evento, Integer dataValidade, Boolean utilizado) throws ApiException {
+        cupomCadastrarPostWithHttpInfo(descricao, evento, dataValidade, utilizado);
+    }
+
+    /**
+     * Cadastrar um Cupom
+     * Recebe uma response de Cupom
+     * @param descricao  (required)
+     * @param evento  (required)
+     * @param dataValidade  (required)
+     * @param utilizado  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> cupomCadastrarPostWithHttpInfo(String descricao, Integer evento, Integer dataValidade, Boolean utilizado) throws ApiException {
+        com.squareup.okhttp.Call call = cupomCadastrarPostValidateBeforeCall(descricao, evento, dataValidade, utilizado, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Cadastrar um Cupom (asynchronously)
+     * Recebe uma response de Cupom
+     * @param descricao  (required)
+     * @param evento  (required)
+     * @param dataValidade  (required)
+     * @param utilizado  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call cupomCadastrarPostAsync(String descricao, Integer evento, Integer dataValidade, Boolean utilizado, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = cupomCadastrarPostValidateBeforeCall(descricao, evento, dataValidade, utilizado, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
      * Build call for cupomIdCuponsGet
      * @param id  (required)
      * @param progressListener Progress listener
@@ -739,7 +892,7 @@ public class DefaultApi {
 
     /**
      * Obter cupons
-     * Retorna uma lista de cupons.
+     * Retorna um cupom.
      * @param id  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -749,7 +902,7 @@ public class DefaultApi {
 
     /**
      * Obter cupons
-     * Retorna uma lista de cupons.
+     * Retorna um cupom.
      * @param id  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -761,7 +914,7 @@ public class DefaultApi {
 
     /**
      * Obter cupons (asynchronously)
-     * Retorna uma lista de cupons.
+     * Retorna um cupom.
      * @param id  (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**atividadeListarGet**](DefaultApi.md#atividadeListarGet) | **GET** /atividade/listar | Listar atividades
 [**atividadeListarTiposGet**](DefaultApi.md#atividadeListarTiposGet) | **GET** /atividade/listar-tipos | Listar tipos de atividades
 [**cupomAplicarCodigoGet**](DefaultApi.md#cupomAplicarCodigoGet) | **GET** /cupom/aplicar/{codigo} | listar cupons
+[**cupomCadastrarPost**](DefaultApi.md#cupomCadastrarPost) | **POST** /cupom/cadastrar | Cadastrar um Cupom
 [**cupomIdCuponsGet**](DefaultApi.md#cupomIdCuponsGet) | **GET** /cupom/{id}/cupons | Obter cupons
 [**cupomListarGet**](DefaultApi.md#cupomListarGet) | **GET** /cupom/listar | listar cupons
 [**eventoCadastrarPost**](DefaultApi.md#eventoCadastrarPost) | **POST** /evento/cadastrar | Cadastrar Evento
@@ -244,13 +245,63 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="cupomCadastrarPost"></a>
+# **cupomCadastrarPost**
+> cupomCadastrarPost(descricao, evento, dataValidade, utilizado)
+
+Cadastrar um Cupom
+
+Recebe uma response de Cupom
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String descricao = "descricao_example"; // String | 
+Integer evento = 56; // Integer | 
+Integer dataValidade = 56; // Integer | 
+Boolean utilizado = true; // Boolean | 
+try {
+    apiInstance.cupomCadastrarPost(descricao, evento, dataValidade, utilizado);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#cupomCadastrarPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **descricao** | **String**|  |
+ **evento** | **Integer**|  |
+ **dataValidade** | **Integer**|  |
+ **utilizado** | **Boolean**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="cupomIdCuponsGet"></a>
 # **cupomIdCuponsGet**
 > cupomIdCuponsGet(id)
 
 Obter cupons
 
-Retorna uma lista de cupons.
+Retorna um cupom.
 
 ### Example
 ```java

@@ -114,9 +114,28 @@ public class DefaultApiTest {
     }
     
     /**
+     * Cadastrar um Cupom
+     *
+     * Recebe uma response de Cupom
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void cupomCadastrarPostTest() throws ApiException {
+        String descricao = null;
+        Integer evento = null;
+        Integer dataValidade = null;
+        Boolean utilizado = null;
+        api.cupomCadastrarPost(descricao, evento, dataValidade, utilizado);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Obter cupons
      *
-     * Retorna uma lista de cupons.
+     * Retorna um cupom.
      *
      * @throws ApiException
      *          if the Api call fails
