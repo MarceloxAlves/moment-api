@@ -94,6 +94,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**usuarioCadastrarPost**](docs/DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Cadastra Usuário
 *DefaultApi* | [**usuarioEmailGet**](docs/DefaultApi.md#usuarioEmailGet) | **GET** /usuario/{email} | Retorna uma usuário baseado no email.
+*DefaultApi* | [**usuarioIdMinhasInscricoesGet**](docs/DefaultApi.md#usuarioIdMinhasInscricoesGet) | **GET** /usuario/{id}/minhas-inscricoes/ | Retorna uma lista com as inscrições do usuario.
 *DefaultApi* | [**usuarioListarGet**](docs/DefaultApi.md#usuarioListarGet) | **GET** /usuario/listar | Retorna uma lista de usuário.
 *DefaultApi* | [**usuarioLoginPost**](docs/DefaultApi.md#usuarioLoginPost) | **POST** /usuario/login | Logar Usuário
 

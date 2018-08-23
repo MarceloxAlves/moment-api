@@ -67,6 +67,22 @@ public class DefaultApiTest {
     }
     
     /**
+     * Retorna uma lista com as inscrições do usuario.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void usuarioIdMinhasInscricoesGetTest() throws ApiException {
+        String id = null;
+        api.usuarioIdMinhasInscricoesGet(id);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Retorna uma lista de usuário.
      *
      * 

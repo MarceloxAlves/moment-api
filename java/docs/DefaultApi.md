@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**usuarioCadastrarPost**](DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Cadastra Usuário
 [**usuarioEmailGet**](DefaultApi.md#usuarioEmailGet) | **GET** /usuario/{email} | Retorna uma usuário baseado no email.
+[**usuarioIdMinhasInscricoesGet**](DefaultApi.md#usuarioIdMinhasInscricoesGet) | **GET** /usuario/{id}/minhas-inscricoes/ | Retorna uma lista com as inscrições do usuario.
 [**usuarioListarGet**](DefaultApi.md#usuarioListarGet) | **GET** /usuario/listar | Retorna uma lista de usuário.
 [**usuarioLoginPost**](DefaultApi.md#usuarioLoginPost) | **POST** /usuario/login | Logar Usuário
 
@@ -101,6 +102,48 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+<a name="usuarioIdMinhasInscricoesGet"></a>
+# **usuarioIdMinhasInscricoesGet**
+> usuarioIdMinhasInscricoesGet(id)
+
+Retorna uma lista com as inscrições do usuario.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String id = "id_example"; // String | 
+try {
+    apiInstance.usuarioIdMinhasInscricoesGet(id);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#usuarioIdMinhasInscricoesGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 <a name="usuarioListarGet"></a>
 # **usuarioListarGet**
