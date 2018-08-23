@@ -1,5 +1,6 @@
 package service;
 
+import model.Evento;
 import model.Inscricao;
 import model.Login;
 
@@ -28,7 +29,15 @@ public class UsuarioService {
     public List<Inscricao> minhasInscricoes(Long id) {
 		return usuarioRepository.inscricoesUsuario(id);
 	}
-
+    
+    public void delete(Long id) {
+	 	  usuarioRepository.deleteById(id);
+	}
+    
+    public Usuario findByIdUsuario(Long id) {
+		 return usuarioRepository.findByIdUsuario(id);
+	}
+    
     public Usuario criarUsuario(Usuario usuario) {
        return usuarioRepository.save(usuario);
     }
