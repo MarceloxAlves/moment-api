@@ -32,11 +32,11 @@ public class InscricaoValidator implements Validator {
 	@Override
 	public void validate(Object object, Errors errors) {
 		Inscricao inscricao = (Inscricao) object;
-		validarAtividadesInscricao(inscricao, errors);
+		/*validarAtividadesInscricao(inscricao, errors);*/
 	}
 	
 	
-	private void validarAtividadesInscricao(Inscricao inscricao, Errors errors) {
+	/*private void validarAtividadesInscricao(Inscricao inscricao, Errors errors) {
 		Atividade atividadeValida; 
 		for(int i=0; i<inscricao.getAtividades().size(); i++) {
 			atividadeValida = atividadeService.obterAtividade(inscricao.getAtividades().get(i).getId());
@@ -45,5 +45,5 @@ public class InscricaoValidator implements Validator {
 				break;
 			}
 		}
-	}
+	}*/
 }
