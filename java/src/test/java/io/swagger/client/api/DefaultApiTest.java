@@ -51,6 +51,22 @@ public class DefaultApiTest {
     }
     
     /**
+     * Retorna uma usuário baseado no email.
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void usuarioEmailGetTest() throws ApiException {
+        String email = null;
+        api.usuarioEmailGet(email);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Retorna uma lista de usuário.
      *
      * 

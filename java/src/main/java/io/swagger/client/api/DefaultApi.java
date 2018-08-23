@@ -68,13 +68,16 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/usuario/cadastrar"
-            .replaceAll("\\{" + "nome" + "\\}", apiClient.escapeString(nome.toString()))
-            .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(email.toString()))
-            .replaceAll("\\{" + "password" + "\\}", apiClient.escapeString(password.toString()));
+        String localVarPath = "/usuario/cadastrar";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (nome != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("nome", nome));
+        if (email != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("email", email));
+        if (password != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("password", password));
         if (evento != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("evento", evento));
 
@@ -204,6 +207,125 @@ public class DefaultApi {
         return call;
     }
     /**
+     * Build call for usuarioEmailGet
+     * @param email  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call usuarioEmailGetCall(String email, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/usuario/{email}"
+            .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(email.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call usuarioEmailGetValidateBeforeCall(String email, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'email' is set
+        if (email == null) {
+            throw new ApiException("Missing the required parameter 'email' when calling usuarioEmailGet(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = usuarioEmailGetCall(email, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Retorna uma usuário baseado no email.
+     * 
+     * @param email  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void usuarioEmailGet(String email) throws ApiException {
+        usuarioEmailGetWithHttpInfo(email);
+    }
+
+    /**
+     * Retorna uma usuário baseado no email.
+     * 
+     * @param email  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> usuarioEmailGetWithHttpInfo(String email) throws ApiException {
+        com.squareup.okhttp.Call call = usuarioEmailGetValidateBeforeCall(email, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Retorna uma usuário baseado no email. (asynchronously)
+     * 
+     * @param email  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call usuarioEmailGetAsync(String email, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = usuarioEmailGetValidateBeforeCall(email, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
      * Build call for usuarioListarGet
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -325,12 +447,14 @@ public class DefaultApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/usuario/login"
-            .replaceAll("\\{" + "email" + "\\}", apiClient.escapeString(email.toString()))
-            .replaceAll("\\{" + "password" + "\\}", apiClient.escapeString(password.toString()));
+        String localVarPath = "/usuario/login";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (email != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("email", email));
+        if (password != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("password", password));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
