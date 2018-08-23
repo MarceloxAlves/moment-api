@@ -98,7 +98,7 @@ public class DefaultApiTest {
     }
     
     /**
-     * Cancelar do evento.
+     * Cancelar evento.
      *
      * Cancelamento do evento relacionado ao id.
      *
@@ -109,6 +109,22 @@ public class DefaultApiTest {
     public void eventoCancelarIdGetTest() throws ApiException {
         String id = null;
         api.eventoCancelarIdGet(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Deletar evento.
+     *
+     * Deletar evento relacionado ao id.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void eventoDeleteIdDeleteTest() throws ApiException {
+        String id = null;
+        api.eventoDeleteIdDelete(id);
 
         // TODO: test validations
     }

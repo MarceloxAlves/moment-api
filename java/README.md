@@ -93,7 +93,8 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**atividadeCadastrarPost**](docs/DefaultApi.md#atividadeCadastrarPost) | **POST** /atividade/cadastrar | Cadastrar Atividade
 *DefaultApi* | [**atividadeListarGet**](docs/DefaultApi.md#atividadeListarGet) | **GET** /atividade/listar | Listar atividades
 *DefaultApi* | [**atividadeListarTiposGet**](docs/DefaultApi.md#atividadeListarTiposGet) | **GET** /atividade/listar-tipos | Listar tipos de atividades
-*DefaultApi* | [**eventoCancelarIdGet**](docs/DefaultApi.md#eventoCancelarIdGet) | **GET** /evento/cancelar/{id} | Cancelar do evento.
+*DefaultApi* | [**eventoCancelarIdGet**](docs/DefaultApi.md#eventoCancelarIdGet) | **GET** /evento/cancelar/{id} | Cancelar evento.
+*DefaultApi* | [**eventoDeleteIdDelete**](docs/DefaultApi.md#eventoDeleteIdDelete) | **DELETE** /evento/delete/{id} | Deletar evento.
 *DefaultApi* | [**eventoListarGet**](docs/DefaultApi.md#eventoListarGet) | **GET** /evento/listar | listar eventos
 *DefaultApi* | [**eventoMudarEstadoIdGet**](docs/DefaultApi.md#eventoMudarEstadoIdGet) | **GET** /evento/mudar-estado/{id} | Mudar estado do evento.
 *DefaultApi* | [**eventoParticiparIdGet**](docs/DefaultApi.md#eventoParticiparIdGet) | **GET** /evento/participar/{id} | Participar do evento.

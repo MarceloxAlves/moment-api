@@ -8,7 +8,8 @@ Method | HTTP request | Description
 [**atividadeCadastrarPost**](DefaultApi.md#atividadeCadastrarPost) | **POST** /atividade/cadastrar | Cadastrar Atividade
 [**atividadeListarGet**](DefaultApi.md#atividadeListarGet) | **GET** /atividade/listar | Listar atividades
 [**atividadeListarTiposGet**](DefaultApi.md#atividadeListarTiposGet) | **GET** /atividade/listar-tipos | Listar tipos de atividades
-[**eventoCancelarIdGet**](DefaultApi.md#eventoCancelarIdGet) | **GET** /evento/cancelar/{id} | Cancelar do evento.
+[**eventoCancelarIdGet**](DefaultApi.md#eventoCancelarIdGet) | **GET** /evento/cancelar/{id} | Cancelar evento.
+[**eventoDeleteIdDelete**](DefaultApi.md#eventoDeleteIdDelete) | **DELETE** /evento/delete/{id} | Deletar evento.
 [**eventoListarGet**](DefaultApi.md#eventoListarGet) | **GET** /evento/listar | listar eventos
 [**eventoMudarEstadoIdGet**](DefaultApi.md#eventoMudarEstadoIdGet) | **GET** /evento/mudar-estado/{id} | Mudar estado do evento.
 [**eventoParticiparIdGet**](DefaultApi.md#eventoParticiparIdGet) | **GET** /evento/participar/{id} | Participar do evento.
@@ -199,7 +200,7 @@ No authorization required
 # **eventoCancelarIdGet**
 > eventoCancelarIdGet(id)
 
-Cancelar do evento.
+Cancelar evento.
 
 Cancelamento do evento relacionado ao id.
 
@@ -216,6 +217,50 @@ try {
     apiInstance.eventoCancelarIdGet(id);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#eventoCancelarIdGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a name="eventoDeleteIdDelete"></a>
+# **eventoDeleteIdDelete**
+> eventoDeleteIdDelete(id)
+
+Deletar evento.
+
+Deletar evento relacionado ao id.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String id = "id_example"; // String | 
+try {
+    apiInstance.eventoDeleteIdDelete(id);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#eventoDeleteIdDelete");
     e.printStackTrace();
 }
 ```
