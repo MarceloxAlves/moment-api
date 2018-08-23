@@ -2,6 +2,7 @@ package model;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -11,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +23,7 @@ import java.util.List;
 		scope = Inscricao.class,
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-public class Inscricao {
+public class Inscricao implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,7 +31,8 @@ public class Inscricao {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "id_usuario" , referencedColumnName = "id_usuario")
+    @JoinColumn(name = "participante", referencedColumnName = "id_usuario")
+    @JsonBackReference
     private Usuario usuario;
     
     @ManyToOne
@@ -53,8 +56,7 @@ public class Inscricao {
 
     @ManyToMany
     @JoinTable(name = "item_inscricao",
-    joinColumns = {@JoinColumn(
-            name ="inscricao", referencedColumnName = "id_inscricao")},
+    joinColumns = {@JoinColumn( name ="inscricao", referencedColumnName = "id_inscricao")},
     inverseJoinColumns = {@JoinColumn(name = "atividade", referencedColumnName = "id_atividade")})
     private List<Atividade> atividades;
     
