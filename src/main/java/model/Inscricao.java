@@ -31,7 +31,6 @@ public class Inscricao implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "participante", referencedColumnName = "id_usuario")
-    @JsonIgnore
     private Usuario usuario;
     
     @ManyToOne
