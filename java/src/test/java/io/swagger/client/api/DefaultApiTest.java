@@ -113,7 +113,10 @@ public class DefaultApiTest {
         Integer estadoEvento = null;
         Integer usuario = null;
         List<Integer> atividades = null;
-        api.eventoCadastrarPost(descricao, dataInicio, dataTermino, estadoEvento, usuario, atividades);
+        List<Integer> tags = null;
+        List<Integer> colaboradores = null;
+        List<Integer> cupons = null;
+        api.eventoCadastrarPost(descricao, dataInicio, dataTermino, estadoEvento, usuario, atividades, tags, colaboradores, cupons);
 
         // TODO: test validations
     }

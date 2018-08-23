@@ -199,7 +199,7 @@ No authorization required
 
 <a name="eventoCadastrarPost"></a>
 # **eventoCadastrarPost**
-> eventoCadastrarPost(descricao, dataInicio, dataTermino, estadoEvento, usuario, atividades)
+> eventoCadastrarPost(descricao, dataInicio, dataTermino, estadoEvento, usuario, atividades, tags, colaboradores, cupons)
 
 Cadastrar Evento
 
@@ -219,8 +219,11 @@ Integer dataTermino = 56; // Integer |
 Integer estadoEvento = 56; // Integer | 
 Integer usuario = 56; // Integer | 
 List<Integer> atividades = Arrays.asList(56); // List<Integer> | 
+List<Integer> tags = Arrays.asList(56); // List<Integer> | 
+List<Integer> colaboradores = Arrays.asList(56); // List<Integer> | 
+List<Integer> cupons = Arrays.asList(56); // List<Integer> | 
 try {
-    apiInstance.eventoCadastrarPost(descricao, dataInicio, dataTermino, estadoEvento, usuario, atividades);
+    apiInstance.eventoCadastrarPost(descricao, dataInicio, dataTermino, estadoEvento, usuario, atividades, tags, colaboradores, cupons);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#eventoCadastrarPost");
     e.printStackTrace();
@@ -237,6 +240,9 @@ Name | Type | Description  | Notes
  **estadoEvento** | **Integer**|  |
  **usuario** | **Integer**|  |
  **atividades** | [**List&lt;Integer&gt;**](Integer.md)|  |
+ **tags** | [**List&lt;Integer&gt;**](Integer.md)|  |
+ **colaboradores** | [**List&lt;Integer&gt;**](Integer.md)|  |
+ **cupons** | [**List&lt;Integer&gt;**](Integer.md)|  |
 
 ### Return type
 
