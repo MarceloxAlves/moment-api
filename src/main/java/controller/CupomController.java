@@ -3,11 +3,14 @@ package controller;
 import model.Cupom;
 
 import model.Evento;
+import model.Inscricao;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import helper.ResultData;
 import repository.CupomRepository;
 import repository.EventoRepository;
@@ -43,6 +46,12 @@ public class CupomController {
         }
         resultData.setMessage("Cupom utilizado com Sucesso!");
         return resultData;
+    }
+    
+    @GetMapping("/{id}/cupons")
+    public List<Cupom> obterCupons(@PathVariable Long id) {
+        List<Cupom> cupons = cupomService.getCuponsEvento(id);
+        return cupons;
     }
     
     @PostMapping(path = "/cadastrar/{quantidade}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = "application/json")

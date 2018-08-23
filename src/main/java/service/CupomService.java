@@ -28,6 +28,10 @@ public class CupomService {
 		}
 
 	}
+	
+	public List<Cupom> getCuponsEvento(Long id) {
+		return cupomRepository.cuponsEvento(id);
+	}
 	    
 	public List<Cupom> findAll() {
 		return cupomRepository.findAll();
