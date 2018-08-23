@@ -5,6 +5,7 @@ All URIs are relative to *https://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**atividadeListarGet**](DefaultApi.md#atividadeListarGet) | **GET** /atividade/listar | Retorna uma lista de atividades.
+[**atividadeListarTiposGet**](DefaultApi.md#atividadeListarTiposGet) | **GET** /atividade/listar-tipos | Retorna uma lista dos tipos de atividades.
 [**usuarioCadastrarPost**](DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Cadastra Usuário
 [**usuarioEmailGet**](DefaultApi.md#usuarioEmailGet) | **GET** /usuario/{email} | Retorna uma usuário baseado no email.
 [**usuarioIdMinhasInscricoesGet**](DefaultApi.md#usuarioIdMinhasInscricoesGet) | **GET** /usuario/{id}/minhas-inscricoes/ | Retorna uma lista com as inscrições do usuario.
@@ -30,6 +31,44 @@ try {
     apiInstance.atividadeListarGet();
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#atividadeListarGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="atividadeListarTiposGet"></a>
+# **atividadeListarTiposGet**
+> atividadeListarTiposGet()
+
+Retorna uma lista dos tipos de atividades.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    apiInstance.atividadeListarTiposGet();
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#atividadeListarTiposGet");
     e.printStackTrace();
 }
 ```

@@ -89,6 +89,7 @@ All URIs are relative to *https://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**atividadeListarGet**](docs/DefaultApi.md#atividadeListarGet) | **GET** /atividade/listar | Retorna uma lista de atividades.
+*DefaultApi* | [**atividadeListarTiposGet**](docs/DefaultApi.md#atividadeListarTiposGet) | **GET** /atividade/listar-tipos | Retorna uma lista dos tipos de atividades.
 *DefaultApi* | [**usuarioCadastrarPost**](docs/DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Cadastra Usuário
 *DefaultApi* | [**usuarioEmailGet**](docs/DefaultApi.md#usuarioEmailGet) | **GET** /usuario/{email} | Retorna uma usuário baseado no email.
 *DefaultApi* | [**usuarioIdMinhasInscricoesGet**](docs/DefaultApi.md#usuarioIdMinhasInscricoesGet) | **GET** /usuario/{id}/minhas-inscricoes/ | Retorna uma lista com as inscrições do usuario.
