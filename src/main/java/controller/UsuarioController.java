@@ -39,7 +39,7 @@ public class UsuarioController {
         return usuarioService.findAll();
     }
     
-    @GetMapping("/minhas-inscricoes/{id}")
+    @GetMapping("{id}/minhas-inscricoes/")
     public List<Inscricao> obterInscricoes(@PathVariable Long id) {
         return usuarioService.minhasInscricoes(id);
     }
