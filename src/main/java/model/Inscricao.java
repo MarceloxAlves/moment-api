@@ -29,12 +29,11 @@ public class Inscricao {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "participante", referencedColumnName = "id_usuario")
-    @JsonIgnore
+    @JoinColumn(name = "id_usuario" , referencedColumnName = "id_usuario")
     private Usuario usuario;
     
     @ManyToOne
-    @JoinColumn(name = "evento", referencedColumnName = "id_evento")
+    @JoinColumn(name = "id_evento",  referencedColumnName = "id_evento")
     private Evento evento;
     
     @Column(name = "valor_total")
