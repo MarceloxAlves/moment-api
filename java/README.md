@@ -71,15 +71,11 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         
         DefaultApi apiInstance = new DefaultApi();
-        String nome = "nome_example"; // String | 
-        String termino = "termino_example"; // String | 
-        Integer valor = 56; // Integer | 
-        Integer tipoAtividade = 56; // Integer | 
-        Integer evento = 56; // Integer | 
+        String id = "id_example"; // String | 
         try {
-            apiInstance.atividadeCadastrarPost(nome, termino, valor, tipoAtividade, evento);
+            apiInstance.atividadeBuscarAtividadeIdGet(id);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#atividadeCadastrarPost");
+            System.err.println("Exception when calling DefaultApi#atividadeBuscarAtividadeIdGet");
             e.printStackTrace();
         }
     }
@@ -93,13 +89,16 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**atividadeBuscarAtividadeIdGet**](docs/DefaultApi.md#atividadeBuscarAtividadeIdGet) | **GET** /atividade/buscar-atividade/{id} | Buscar uma atividade .
 *DefaultApi* | [**atividadeCadastrarPost**](docs/DefaultApi.md#atividadeCadastrarPost) | **POST** /atividade/cadastrar | Cadastrar Atividade
-*DefaultApi* | [**atividadeListarGet**](docs/DefaultApi.md#atividadeListarGet) | **GET** /atividade/listar | Retorna uma lista de atividades.
-*DefaultApi* | [**atividadeListarTiposGet**](docs/DefaultApi.md#atividadeListarTiposGet) | **GET** /atividade/listar-tipos | Retorna uma lista dos tipos de atividades.
+*DefaultApi* | [**atividadeListarGet**](docs/DefaultApi.md#atividadeListarGet) | **GET** /atividade/listar | Listar atividades
+*DefaultApi* | [**atividadeListarTiposGet**](docs/DefaultApi.md#atividadeListarTiposGet) | **GET** /atividade/listar-tipos | Listar tipos de atividades
+*DefaultApi* | [**eventoListarGet**](docs/DefaultApi.md#eventoListarGet) | **GET** /evento/listar | listar eventos
+*DefaultApi* | [**eventoMudarEstadoIdGet**](docs/DefaultApi.md#eventoMudarEstadoIdGet) | **GET** /evento/mudar-estado/{id} | Mudar estado do evento.
 *DefaultApi* | [**usuarioCadastrarPost**](docs/DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Cadastra Usuário
-*DefaultApi* | [**usuarioEmailGet**](docs/DefaultApi.md#usuarioEmailGet) | **GET** /usuario/{email} | Retorna uma usuário baseado no email.
-*DefaultApi* | [**usuarioIdMinhasInscricoesGet**](docs/DefaultApi.md#usuarioIdMinhasInscricoesGet) | **GET** /usuario/{id}/minhas-inscricoes/ | Retorna uma lista com as inscrições do usuario.
-*DefaultApi* | [**usuarioListarGet**](docs/DefaultApi.md#usuarioListarGet) | **GET** /usuario/listar | Retorna uma lista de usuário.
+*DefaultApi* | [**usuarioEmailGet**](docs/DefaultApi.md#usuarioEmailGet) | **GET** /usuario/{email} | Mostrar Usuário
+*DefaultApi* | [**usuarioIdMinhasInscricoesGet**](docs/DefaultApi.md#usuarioIdMinhasInscricoesGet) | **GET** /usuario/{id}/minhas-inscricoes/ | Retorna inscrições do usuario
+*DefaultApi* | [**usuarioListarGet**](docs/DefaultApi.md#usuarioListarGet) | **GET** /usuario/listar | listar usuarios
 *DefaultApi* | [**usuarioLoginPost**](docs/DefaultApi.md#usuarioLoginPost) | **POST** /usuario/login | Logar Usuário
 
 

@@ -4,15 +4,62 @@ All URIs are relative to *https://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**atividadeBuscarAtividadeIdGet**](DefaultApi.md#atividadeBuscarAtividadeIdGet) | **GET** /atividade/buscar-atividade/{id} | Buscar uma atividade .
 [**atividadeCadastrarPost**](DefaultApi.md#atividadeCadastrarPost) | **POST** /atividade/cadastrar | Cadastrar Atividade
-[**atividadeListarGet**](DefaultApi.md#atividadeListarGet) | **GET** /atividade/listar | Retorna uma lista de atividades.
-[**atividadeListarTiposGet**](DefaultApi.md#atividadeListarTiposGet) | **GET** /atividade/listar-tipos | Retorna uma lista dos tipos de atividades.
+[**atividadeListarGet**](DefaultApi.md#atividadeListarGet) | **GET** /atividade/listar | Listar atividades
+[**atividadeListarTiposGet**](DefaultApi.md#atividadeListarTiposGet) | **GET** /atividade/listar-tipos | Listar tipos de atividades
+[**eventoListarGet**](DefaultApi.md#eventoListarGet) | **GET** /evento/listar | listar eventos
+[**eventoMudarEstadoIdGet**](DefaultApi.md#eventoMudarEstadoIdGet) | **GET** /evento/mudar-estado/{id} | Mudar estado do evento.
 [**usuarioCadastrarPost**](DefaultApi.md#usuarioCadastrarPost) | **POST** /usuario/cadastrar | Cadastra Usuário
-[**usuarioEmailGet**](DefaultApi.md#usuarioEmailGet) | **GET** /usuario/{email} | Retorna uma usuário baseado no email.
-[**usuarioIdMinhasInscricoesGet**](DefaultApi.md#usuarioIdMinhasInscricoesGet) | **GET** /usuario/{id}/minhas-inscricoes/ | Retorna uma lista com as inscrições do usuario.
-[**usuarioListarGet**](DefaultApi.md#usuarioListarGet) | **GET** /usuario/listar | Retorna uma lista de usuário.
+[**usuarioEmailGet**](DefaultApi.md#usuarioEmailGet) | **GET** /usuario/{email} | Mostrar Usuário
+[**usuarioIdMinhasInscricoesGet**](DefaultApi.md#usuarioIdMinhasInscricoesGet) | **GET** /usuario/{id}/minhas-inscricoes/ | Retorna inscrições do usuario
+[**usuarioListarGet**](DefaultApi.md#usuarioListarGet) | **GET** /usuario/listar | listar usuarios
 [**usuarioLoginPost**](DefaultApi.md#usuarioLoginPost) | **POST** /usuario/login | Logar Usuário
 
+
+<a name="atividadeBuscarAtividadeIdGet"></a>
+# **atividadeBuscarAtividadeIdGet**
+> atividadeBuscarAtividadeIdGet(id)
+
+Buscar uma atividade .
+
+Retorna uma atividade baseado no id
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String id = "id_example"; // String | 
+try {
+    apiInstance.atividadeBuscarAtividadeIdGet(id);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#atividadeBuscarAtividadeIdGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 <a name="atividadeCadastrarPost"></a>
 # **atividadeCadastrarPost**
@@ -70,6 +117,8 @@ No authorization required
 # **atividadeListarGet**
 > atividadeListarGet()
 
+Listar atividades
+
 Retorna uma lista de atividades.
 
 ### Example
@@ -108,6 +157,8 @@ No authorization required
 # **atividadeListarTiposGet**
 > atividadeListarTiposGet()
 
+Listar tipos de atividades
+
 Retorna uma lista dos tipos de atividades.
 
 ### Example
@@ -141,6 +192,90 @@ No authorization required
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+<a name="eventoListarGet"></a>
+# **eventoListarGet**
+> eventoListarGet()
+
+listar eventos
+
+Retorna uma lista de usuário.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+try {
+    apiInstance.eventoListarGet();
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#eventoListarGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="eventoMudarEstadoIdGet"></a>
+# **eventoMudarEstadoIdGet**
+> eventoMudarEstadoIdGet(id)
+
+Mudar estado do evento.
+
+Muda o estado do evento
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+String id = "id_example"; // String | 
+try {
+    apiInstance.eventoMudarEstadoIdGet(id);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#eventoMudarEstadoIdGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 <a name="usuarioCadastrarPost"></a>
 # **usuarioCadastrarPost**
@@ -196,6 +331,8 @@ No authorization required
 # **usuarioEmailGet**
 > usuarioEmailGet(email)
 
+Mostrar Usuário
+
 Retorna uma usuário baseado no email.
 
 ### Example
@@ -238,7 +375,9 @@ No authorization required
 # **usuarioIdMinhasInscricoesGet**
 > usuarioIdMinhasInscricoesGet(id)
 
-Retorna uma lista com as inscrições do usuario.
+Retorna inscrições do usuario
+
+Retorna uma lista com as inscrições do usuario baseados no seu id.
 
 ### Example
 ```java
@@ -279,6 +418,8 @@ No authorization required
 <a name="usuarioListarGet"></a>
 # **usuarioListarGet**
 > usuarioListarGet()
+
+listar usuarios
 
 Retorna uma lista de usuário.
 

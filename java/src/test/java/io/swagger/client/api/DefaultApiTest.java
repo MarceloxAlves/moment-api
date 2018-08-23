@@ -32,6 +32,22 @@ public class DefaultApiTest {
 
     
     /**
+     * Buscar uma atividade .
+     *
+     * Retorna uma atividade baseado no id
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void atividadeBuscarAtividadeIdGetTest() throws ApiException {
+        String id = null;
+        api.atividadeBuscarAtividadeIdGet(id);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Cadastrar Atividade
      *
      * Recebe uma response de atividade
@@ -52,9 +68,9 @@ public class DefaultApiTest {
     }
     
     /**
-     * Retorna uma lista de atividades.
+     * Listar atividades
      *
-     * 
+     * Retorna uma lista de atividades.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -67,9 +83,9 @@ public class DefaultApiTest {
     }
     
     /**
-     * Retorna uma lista dos tipos de atividades.
+     * Listar tipos de atividades
      *
-     * 
+     * Retorna uma lista dos tipos de atividades.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -77,6 +93,37 @@ public class DefaultApiTest {
     @Test
     public void atividadeListarTiposGetTest() throws ApiException {
         api.atividadeListarTiposGet();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * listar eventos
+     *
+     * Retorna uma lista de usuário.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void eventoListarGetTest() throws ApiException {
+        api.eventoListarGet();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Mudar estado do evento.
+     *
+     * Muda o estado do evento
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void eventoMudarEstadoIdGetTest() throws ApiException {
+        String id = null;
+        api.eventoMudarEstadoIdGet(id);
 
         // TODO: test validations
     }
@@ -101,9 +148,9 @@ public class DefaultApiTest {
     }
     
     /**
-     * Retorna uma usuário baseado no email.
+     * Mostrar Usuário
      *
-     * 
+     * Retorna uma usuário baseado no email.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -117,9 +164,9 @@ public class DefaultApiTest {
     }
     
     /**
-     * Retorna uma lista com as inscrições do usuario.
+     * Retorna inscrições do usuario
      *
-     * 
+     * Retorna uma lista com as inscrições do usuario baseados no seu id.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -133,9 +180,9 @@ public class DefaultApiTest {
     }
     
     /**
-     * Retorna uma lista de usuário.
+     * listar usuarios
      *
-     * 
+     * Retorna uma lista de usuário.
      *
      * @throws ApiException
      *          if the Api call fails
