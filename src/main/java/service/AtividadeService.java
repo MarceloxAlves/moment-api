@@ -2,7 +2,7 @@ package service;
 
 
 import model.Atividade;
-
+import model.Cupom;
 import model.TipoAtividade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +32,10 @@ public class AtividadeService {
     
     public void delete(Long id) {
     	atividadeRepository.deleteById(id);
+	}
+    
+    public List<Atividade> getatividadesEvento(Long id) {
+		return atividadeRepository.atividadesEvento(id);
 	}
     
     public Atividade obterAtividade(Long id) {
