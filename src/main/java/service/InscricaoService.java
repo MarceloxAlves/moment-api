@@ -27,8 +27,9 @@ public class InscricaoService {
 			Optional<Atividade> atividadeEncontrada = atividadeService.getAtividade(atividade.getId());
 			valorTotal += atividadeEncontrada.get().getValor();
 		}
+		double valorDescontado = (valorTotal - (valorTotal * inscricao.getDesconto()));
 		inscricao.setStatusInscricao(StatusInscricao.NAOPAGO);
-		inscricao.setValorTotal(valorTotal);
+		inscricao.setValorTotal(valorDescontado);
 		inscricaoRepository.save(inscricao);
 	}
 	
