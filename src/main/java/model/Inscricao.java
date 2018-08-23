@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +22,7 @@ import java.util.List;
 		scope = Inscricao.class,
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-public class Inscricao {
+public class Inscricao implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -54,8 +55,7 @@ public class Inscricao {
 
     @ManyToMany
     @JoinTable(name = "item_inscricao",
-    joinColumns = {@JoinColumn(
-            name ="inscricao", referencedColumnName = "id_inscricao")},
+    joinColumns = {@JoinColumn( name ="inscricao", referencedColumnName = "id_inscricao")},
     inverseJoinColumns = {@JoinColumn(name = "atividade", referencedColumnName = "id_atividade")})
     private List<Atividade> atividades;
     
